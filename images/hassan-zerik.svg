@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="100%" height="100%" fill="#2A6E2D"/>
+  <circle cx="256" cy="160" r="96" fill="#C0392B"/>
+  <text x="50%" y="320" font-family="Cairo, Tajawal, sans-serif" font-size="36" fill="#F0E8D0" text-anchor="middle">حسن زيرك</text>
+</svg>

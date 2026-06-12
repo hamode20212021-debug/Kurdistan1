@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>كوردستان — أرض الأبطال</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --gold: #F5C842;
+            --red: #C0392B;
+            --green: #1A7A3C;
+            --dark: #0A0C0A;
+            --cream: #F0E8D0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: var(--dark);
+            color: var(--cream);
+            font-family: 'Tajawal', sans-serif
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 40px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent);
+        }
+
+        .nav-logo {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 900;
+            color: var(--gold);
+            font-size: 1.25rem
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            list-style: none
+        }
+
+        .nav-links a {
+            color: rgba(240, 232, 208, 0.9);
+            text-decoration: none;
+        }
+
+        /* Hero section */
+        #hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible;
+            background: radial-gradient(ellipse at 50% 60%, #1a2e14 0%, #0A0C0A 70%);
+        }
+
+        /* Hero visuals: sun, rays, and title visibility */
+        #particles {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .mountains {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .sun-wrap {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        .sun {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 30% 30%, rgba(245, 200, 66, 1) 0%, rgba(245, 200, 66, 0.9) 28%, rgba(245, 200, 66, 0.25) 58%, transparent 72%);
+            box-shadow: 0 0 120px rgba(245, 200, 66, 0.18), 0 10px 40px rgba(0, 0, 0, 0.45);
+            animation: rotate-sun 8s linear infinite;
+            transform-origin: center center;
+        }
+
+        /* 21 rays: 360 / 21 ≈ 17.142857deg per segment. Narrow bright stripe then transparent slice */
+        .sun-rays {
+            position: absolute;
+            inset: -34%;
+            border-radius: 50%;
+            filter: blur(6px);
+            opacity: 0.95;
+            background: repeating-conic-gradient(from 0deg, rgba(245, 200, 66, 0.98) 0deg 2deg, transparent 2deg 17.142857deg);
+        }
+
+        .sun-core {
+            width: 58%;
+            height: 58%;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 30px rgba(245, 200, 66, 0.6) inset;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            max-width: 920px;
+            padding: 24px;
+        }
+
+        .hero-eyebrow {
+            color: rgba(240, 232, 208, 0.6);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .hero-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: clamp(2.4rem, 8vw, 6rem);
+            color: var(--gold);
+            margin: 6px 0;
+            line-height: 1;
+            text-shadow: 0 6px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-title span {
+            display: inline-block;
+            padding: 6px 12px;
+            background: rgba(0, 0, 0, 0.12);
+            border-radius: 8px;
+        }
+
+        .hero-sub {
+            color: rgba(240, 232, 208, 0.85);
+            max-width: 780px;
+            margin: 12px auto 0;
+        }
+
+        @keyframes rotate-sun {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media(max-width:860px) {
+            #nature {
+                grid-template-columns: 1fr
+            }
+
+            .nature-tiles {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-hint {
+            position: absolute;
+            bottom: 36px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(240, 232, 208, 0.4);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+        }
+
+        .scroll-hint span {
+            display: block;
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, rgba(245, 200, 66, 0.6), transparent);
+            animation: scrollLine 1.8s ease-in-out infinite;
+        }
+
+        @keyframes scrollLine {
+            0% {
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+
+            50% {
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+
+            51% {
+                transform: scaleY(1);
+                transform-origin: bottom;
+            }
+
+            100% {
+                transform: scaleY(0);
+                transform-origin: bottom;
+            }
+        }
+
+        /* ─── FLAG STRIPE ─── */
+        .flag-stripe {
+            height: 6px;
+            background: linear-gradient(to right, var(--red) 33.33%, var(--gold) 33.33% 66.66%, var(--green) 66.66%);
+        }
+
+        /* ─── SECTION BASE ─── */
+        section {
+            padding: 120px 60px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .btn-outline {
+            padding: 8px 12px;
+            border: 1px solid var(--gold);
+            color: var(--cream);
+            background: transparent;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        .artist-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px
+        }
+
+        .yt-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--cream);
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.04)
+        }
+
+        .yt-icon {
+            width: 18px;
+            height: 18px;
+            display: inline-block
+        }
+
+        /* ─── LAND SECTION ─── */
+        #land {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .land-text p {
+            color: rgba(240, 232, 208, 0.7);
+            font-size: 1.1rem;
+            line-height: 2;
+            margin-bottom: 20px;
+        }
+
+        .land-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .stat-box {
+            border: 1px solid rgba(245, 200, 66, 0.2);
+            padding: 24px;
+            border-radius: 4px;
+            background: rgba(245, 200, 66, 0.04);
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .stat-box:hover {
+            border-color: rgba(245, 200, 66, 0.5);
+            background: rgba(245, 200, 66, 0.08);
+        }
+
+        .stat-num {
+            font-family: 'Cairo', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: var(--gold);
+        }
+
+        .stat-desc {
+            font-size: 0.85rem;
+            color: rgba(240, 232, 208, 0.55);
+            margin-top: 4px;
+        }
+
+        .land-visual {
+            position: relative;
+            height: 520px;
+            border-radius: 4px;
+            overflow: hidden;
+            background: #081009;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .land-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(8, 16, 9, 0.96), rgba(8, 16, 9, 0.5) 55%, rgba(8, 16, 9, 0.96)),
+                url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Kurdistan_Flag_Map_2002_%28%DA%A9%D9%88%D8%B1%D8%AF%D8%B3%D8%AA%D8%A7%D9%86%DB%8C_%D8%A8%D8%A7%D8%B4%D9%88%D8%B1%29.png/960px-Kurdistan_Flag_Map_2002_%28%DA%A9%D9%88%D8%B1%D8%AF%D8%B3%D8%AA%D8%A7%D9%86%DB%8C_%D8%A8%D8%A7%D8%B4%D9%88%D8%B1%29.png") center/contain no-repeat;
+        }
+
+        .land-overlay-text {
+            position: absolute;
+            bottom: 32px;
+            right: 32px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: rgba(245, 200, 66, 0.9);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .map-content {
+            display: grid;
+            grid-template-columns: 1.3fr 0.9fr;
+            gap: 30px;
+            align-items: start;
+            margin-top: 40px;
+        }
+
+        .map-panel {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(245, 200, 66, 0.12);
+            background: #081009;
+            position: relative;
+        }
+
+        .map-panel img {
+            width: 100%;
+            display: block;
+        }
+
+        .map-info {
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border: 1px solid rgba(245, 200, 66, 0.08);
+        }
+
+        .map-info h3 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.6rem;
+            color: var(--gold);
+            margin-bottom: 18px;
+        }
+
+        .map-info ul {
+            list-style: inside disc;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 12px;
+        }
+
+        .map-info li {
+            color: rgba(240, 232, 208, 0.9);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .map-gallery img+img {
+            margin-top: 18px;
+        }
+
+        .leader-card {
+            margin: 40px auto 0;
+            max-width: 860px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(245, 200, 66, 0.12);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.18);
+        }
+
+        .leader-card img {
+            width: 100%;
+            display: block;
+        }
+
+        .leader-content {
+            padding: 32px;
+        }
+
+        .leader-content h3 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .leader-content p {
+            color: rgba(240, 232, 208, 0.88);
+            line-height: 1.9;
+            font-size: 1rem;
+        }
+
+        /* Footer visuals */
+        .footer-sun {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .footer-credit {
+            color: rgba(245, 200, 66, 0.75);
+            font-size: 0.95rem;
+            margin-top: 18px;
+            letter-spacing: 1px;
+        }
+
+        /* Primary button used in hero */
+        .btn-primary {
+            padding: 10px 14px;
+            background: var(--gold);
+            color: var(--dark);
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* keyframes */
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .map-flag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            width: 86px;
+            height: auto;
+            border: 1px solid rgba(245, 200, 66, 0.12);
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+            padding: 4px;
+        }
+
+        /* ─── CULTURE SECTION ─── */
+        #culture {
+            background: linear-gradient(180deg, transparent, rgba(26, 122, 60, 0.06) 50%, transparent);
+        }
+
+        #culture .inner {
+            max-width: 1280px;
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            margin-top: 60px;
+        }
+
+        .culture-card {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            background: #111;
+            cursor: pointer;
+        }
+
+        .culture-card-bg {
+            position: absolute;
+            inset: 0;
+            transition: transform 0.6s ease;
+        }
+
+        .culture-card:hover .culture-card-bg {
+            transform: scale(1.07);
+        }
+
+        .c1 .culture-card-bg {
+            background: linear-gradient(160deg, #1a3a1a, #2d6e2d);
+        }
+
+        .c2 .culture-card-bg {
+            background: linear-gradient(160deg, #3a1a0a, #8B2010);
+        }
+
+        .c3 .culture-card-bg {
+            background: linear-gradient(160deg, #1a1a3a, #2a2a6e);
+        }
+
+        /* pattern overlays */
+        .c1 .culture-card-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cg fill='none' stroke='rgba(245,200,66,0.08)' stroke-width='1'%3E%3Cpath d='M0 0 L100 100 L200 0' /%3E%3Cpath d='M0 200 L100 100 L200 200' /%3E%3Ccircle cx='100' cy='100' r='60' /%3E%3Ccircle cx='100' cy='100' r='40' /%3E%3C/g%3E%3C/svg%3E") repeat;
+            opacity: 0.5;
+        }
+
+        .culture-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 36px 28px 28px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent);
+            z-index: 2;
+        }
+
+        .culture-info h3 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 6px;
+        }
+
+        .culture-info p {
+            font-size: 0.85rem;
+            color: rgba(240, 232, 208, 0.65);
+            line-height: 1.7;
+        }
+
+        .culture-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        /* center card bigger */
+        .culture-card.featured {
+            grid-row: span 1;
+        }
+
+        /* ─── HISTORY TIMELINE ─── */
+        #history {
+            position: relative;
+        }
+
+        .timeline {
+            position: relative;
+            margin-top: 70px;
+            padding-right: 48px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, var(--gold) 10%, var(--gold) 90%, transparent);
+        }
+
+        .t-event {
+            position: relative;
+            padding: 0 60px 60px 0;
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .t-event.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .t-dot {
+            position: absolute;
+            right: -7px;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 16px rgba(245, 200, 66, 0.6);
+        }
+
+        .t-year {
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .t-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .t-desc {
+            color: rgba(240, 232, 208, 0.65);
+            line-height: 1.9;
+            font-size: 0.95rem;
+            max-width: 600px;
+        }
+
+        /* ─── HEROES SECTION ─── */
+        #heroes {
+            text-align: center;
+        }
+
+        #heroes .section-title {
+            margin-bottom: 16px;
+        }
+
+        #heroes .section-intro {
+            color: rgba(240, 232, 208, 0.6);
+            max-width: 600px;
+            margin: 0 auto 60px;
+            line-height: 1.9;
+        }
+
+        .heroes-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+        }
+
+        .hero-card {
+            border: 1px solid rgba(245, 200, 66, 0.15);
+            padding: 40px 24px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.02);
+            transition: border-color 0.3s, transform 0.3s, background 0.3s;
+            cursor: default;
+        }
+
+        .hero-card:hover {
+            border-color: rgba(245, 200, 66, 0.45);
+            transform: translateY(-6px);
+            background: rgba(245, 200, 66, 0.05);
+        }
+
+        .hero-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            border: 2px solid rgba(245, 200, 66, 0.3);
+            background: rgba(245, 200, 66, 0.08);
+        }
+
+        .hero-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .hero-card h3 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .hero-card p {
+            font-size: 0.82rem;
+            color: rgba(240, 232, 208, 0.55);
+            line-height: 1.8;
+        }
+
+        .hero-era {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 4px 12px;
+            border-radius: 2px;
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            border: 1px solid rgba(245, 200, 66, 0.3);
+        }
+
+        /* ─── QUOTE BLOCK ─── */
+        #quote {
+            width: 100vw;
+            margin-right: calc(-50vw + 50%);
+            background: linear-gradient(135deg, #0d1f0d 0%, #1a3a1a 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 100px 60px;
+            text-align: center;
+        }
+
+        #quote::before {
+            content: '❋';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12rem;
+            color: rgba(245, 200, 66, 0.04);
+            pointer-events: none;
+        }
+
+        .quote-text {
+            font-family: 'Cairo', sans-serif;
+            font-size: clamp(1.6rem, 3.5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.6;
+            color: #fff;
+            max-width: 900px;
+            margin: 0 auto;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .quote-text em {
+            font-style: normal;
+            color: var(--gold);
+        }
+
+        .quote-author {
+            margin-top: 28px;
+            color: rgba(240, 232, 208, 0.5);
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+        }
+
+        /* ─── NATURE ─── */
+        #nature {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .nature-tiles {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .nature-tile {
+            aspect-ratio: 1;
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .nature-tile:hover {
+            transform: scale(1.03);
+        }
+
+        .n1 {
+            background: linear-gradient(135deg, #0d3a0d, #1a5e1a);
+        }
+
+        .n2 {
+            background: linear-gradient(135deg, #0a2030, #1a5070);
+        }
+
+        .n3 {
+            background: linear-gradient(135deg, #2a1a0a, #5a3010);
+        }
+
+        .n4 {
+            background: linear-gradient(135deg, #0a1a0d, #204030);
+        }
+
+        .nature-tile-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: rgba(240, 232, 208, 0.9);
+        }
+
+        .nature-tile-icon {
+            font-size: 3rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            opacity: 0.5;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            width: 100vw;
+            margin-right: calc(-50vw + 50%);
+            background: #060806;
+            padding: 60px;
+            text-align: center;
+            border-top: 1px solid rgba(245, 200, 66, 0.1);
+        }
+
+        .footer-sun {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            animation: spin 20s linear infinite;
+            display: inline-block;
+        }
+
+        .footer-name {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .footer-sub {
+            color: rgba(240, 232, 208, 0.35);
+            font-size: 0.85rem;
+        }
+
+        .footer-credit {
+            color: rgba(245, 200, 66, 0.75);
+            font-size: 0.95rem;
+            margin-top: 18px;
+            letter-spacing: 1px;
+        }
+
+        .flag-footer {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-top: 24px;
+        }
+
+        .flag-block {
+            width: 36px;
+            height: 14px;
+            border-radius: 1px;
+        }
+
+        /* ─── SCROLL REVEAL ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s, transform 0.7s;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            nav {
+                padding: 16px 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 80px 24px;
+            }
+
+            #land {
+                grid-template-columns: 1fr;
+            }
+
+            #nature {
+                grid-template-columns: 1fr;
+            }
+
+            .culture-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .heroes-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            #quote {
+                padding: 80px 24px;
+            }
+
+            footer {
+                padding: 40px 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-logo">❋ كوردستان</div>
+        <ul class="nav-links">
+            <li><a href="#land">الأرض</a></li>
+            <li><a href="#culture">الثقافة</a></li>
+            <li><a href="#music">الموسيقى</a></li>
+            <li><a href="#history">التاريخ</a></li>
+            <li><a href="#heroes">الأبطال</a></li>
+            <li><a href="#nature">الطبيعة</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <div id="hero">
+        <canvas id="particles"></canvas>
+
+        <!-- Sun -->
+        <div class="sun-wrap">
+            <div class="sun">
+                <div class="sun-rays" id="sunRays"></div>
+                <div class="sun-core"></div>
+            </div>
+        </div>
+
+        <!-- Mountains -->
+        <div class="mountains">
+            <svg viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="m1" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#0d2010" />
+                        <stop offset="1" stop-color="#162a12" />
+                    </linearGradient>
+                    <linearGradient id="m2" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#162a12" />
+                        <stop offset="1" stop-color="#1e3a18" />
+                    </linearGradient>
+                    <linearGradient id="m3" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#1e3a18" />
+                        <stop offset="1" stop-color="#0A0C0A" />
+                    </linearGradient>
+                </defs>
+                <polygon
+                    points="0,400 0,280 120,180 200,240 300,140 420,220 540,100 660,200 780,140 900,220 1020,100 1140,180 1260,140 1380,200 1440,160 1440,400"
+                    fill="url(#m1)" />
+                <polygon
+                    points="0,400 0,320 80,260 180,300 280,220 380,270 480,200 580,250 680,190 780,240 880,180 980,230 1080,190 1200,250 1320,200 1440,240 1440,400"
+                    fill="url(#m2)" />
+                <polygon
+                    points="0,400 0,360 100,320 200,350 320,300 440,340 560,300 680,330 800,300 920,330 1040,295 1160,325 1280,300 1440,320 1440,400"
+                    fill="url(#m3)" />
+            </svg>
+        </div>
+
+        <div class="hero-text">
+            <p class="hero-eyebrow">أرض الجبال والأبطال</p>
+            <h1 class="hero-title"><span>كوردستان</span></h1>
+            <p class="hero-sub">من جبال زاگروس إلى سهول أرض الرافدين — هذه أرض شعب ضارب جذوره في عمق الحضارة</p>
+            <div class="hero-cta">
+                <button class="btn-primary scroll-to" data-target="#land">اكتشف الأرض</button>
+                <button class="btn-outline scroll-to" data-target="#culture">ثقافتنا</button>
+            </div>
+        </div>
+
+        <div class="scroll-hint">
+            <span></span>
+        </div>
+    </div>
+
+    <div class="flag-stripe"></div>
+
+    <!-- LAND -->
+    <section id="land">
+        <div class="land-text reveal">
+            <p class="section-label">الجغرافيا</p>
+            <h2 class="section-title">كوردستان الكبرى<br><em>وحدها عبر الحدود</em></h2>
+            <p>كوردستان الكبرى — المنطقة الممتدة عبر أجزاء من تركيا والعراق وإيران وسوريا — موطن الشعب الكوردي منذ آلاف
+                السنين.
+                أرض تتنفس التاريخ في كل حجر وكل وادٍ.</p>
+            <p>من باشور إلى باكور، ومن روژآفا إلى ڕۆژھەڵات، تظل الثقافة الكوردية حية في قلب الجبال والسهول والأنهار.</p>
+            <div class="land-stats">
+                <div class="stat-box">
+                    <div class="stat-num">٨٠٠٠+</div>
+                    <div class="stat-desc">سنة من التاريخ المتواصل</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num">٤٠ م+</div>
+                    <div class="stat-desc">نفوس الكورد حول العالم</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num">+٣٠</div>
+                    <div class="stat-desc">المدن الكوردية</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num">٢١</div>
+                    <div class="stat-desc">شعاعاً في شمس العلم</div>
+                </div>
+            </div>
+        </div>
+        <div class="land-visual reveal">
+            <div class="land-overlay-text">رؤية كوردستان من الخريطة
+                <a href="https://www.google.com/maps/place/Kurdistan+Region" target="_blank"
+                    style="color:#f5a623; text-decoration:underline;">
+                    هنا 🗺️
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="map-content reveal">
+        <div class="map-panel map-gallery">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Kurdistan_Flag_Map_2002_%28%DA%A9%D9%88%D8%B1%D8%AF%D8%B3%D8%AA%D8%A7%D9%86%DB%8C_%D8%A8%D8%A7%D8%B4%D9%88%D8%B1%29.png/960px-Kurdistan_Flag_Map_2002_%28%DA%A9%D9%88%D8%B1%D8%AF%D8%B3%D8%AA%D8%A7%D9%86%DB%8C_%D8%A8%D8%A7%D8%B4%D9%88%D8%B1%29.png"
+                alt="خريطة كوردستان الكبرى">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Rojava_february2014.png/960px-Rojava_february2014.png"
+                alt="خريطة روجافا">
+            <img class="map-flag" src="https://upload.wikimedia.org/wikipedia/commons/3/35/Flag_of_Kurdistan.svg"
+                alt="علم كوردستان">
+        </div>
+        <div class="map-info">
+            <h3>أسماء المناطق الكوردية</h3>
+            <ul>
+                <li>هولير / أربيل - قلب باشور، عاصمة إقليم كوردستان العراق.</li>
+                <li>السليمانية - مركز الثقافة والفنون الكوردية في باشور.</li>
+                <li>دهوك - بوابة الجبل ابن باشور.</li>
+                <li>كركوك - مدينة التقاء الشعوب والموروث التاريخي في جنوب كوردستان.</li>
+                <li>باشور - كوردستان العراق، أرض السلام والحكم الذاتي.</li>
+                <li>باكور - المنطقة الكوردية في تركيا، حاملة للهوية واللغة.</li>
+                <li>روژآفا - كوردستان سوريا، رمز الصمود والحياة المشتركة.</li>
+                <li>ڕۆژھەڵات - كوردستان إيران، جذور عميقة وتراث متواصل.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CULTURE -->
+    <div
+        style="background: linear-gradient(180deg, var(--dark) 0%, rgba(26,122,60,0.05) 50%, var(--dark) 100%); padding: 0 0 20px;">
+        <section id="culture" style="max-width:1280px; margin:0 auto; padding: 120px 60px 0;">
+            <div class="reveal" style="text-align:center;">
+                <p class="section-label">الموروث الحضاري</p>
+                <h2 class="section-title">ثقافة تمتد<br><em>عبر الأجيال</em></h2>
+            </div>
+            <div class="culture-grid reveal">
+                <div class="culture-card c1">
+                    <div class="culture-card-bg"></div>
+                    <div class="culture-info">
+                        <p>
+                        <h4>
+
+                            قصة عيد نوروز
+                        </h4>
+                        <div class="btn-group" style="margin: 12px 0;" color="rgba(245, 200, 66, 0.8);">
+                            <div class="btn-group" style="margin: 12px 0;">
+                                <a href="https://ar.wikipedia.org/wiki/%D9%86%D9%88%D8%B1%D9%88%D8%B2" target="_blank"
+                                    rel="noopener noreferrer" class="yt-btn">
+                                    <span class="culture-icon">📖</span> معرفة القصة
+                                </a>
+                            </div>
+
+                        </div>
+                        <span class="culture-icon">🌿</span>
+
+                        <h3>نوروز — رأس السنة</h3>
+                        <p>الاحتفال الكوردي بقدوم الربيع في ٢١ مارس، رمز التجدد والحياة. يُحرق الاشتعال على القمم ويرقص
+                            الشعب في زيٍّ تقليدي متعدد الألوان.</p>
+                    </div>
+                </div>
+                <div class="culture-card c2 featured">
+                    <div class="culture-card-bg"></div>
+                    <div class="culture-info">
+                        <p>
+                        <h4>قصة الزي الكوردي</h4>
+                        </p>
+                        <div class="btn-group" style="margin: 12px 0;">
+                            <a href="https://ar.wikipedia.org/wiki/%D8%B2%D9%8A_%D8%AA%D9%82%D9%84%D9%8A%D8%AF%D9%8A_%D9%83%D8%B1%D8%AF%D9%8A"
+                                target="_blank" rel="noopener noreferrer" class="yt-btn">
+                                <span>📖</span> معرفة القصة
+                            </a>
+                        </div>
+                        <span class="culture-icon">👘</span>
+                        <h3>الزي الكوردي</h3>
+                        <p>ملابس تقليدية ترمز للهوية والتراث</p>
+                    </div>
+                </div>
+                <div class="culture-card c3">
+                    <div class="culture-card-bg"></div>
+                    <div class="culture-info">
+                        <p>
+                        <h4>قصة اللغة الكوردية</h4>
+                        </p>
+                        <div class="btn-group" style="margin: 12px 0;">
+                            <a href="https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D9%84%D8%BA%D8%A9_%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%AF%D9%8A%D8%A9"
+                                target="_blank" rel="noopener noreferrer" class="yt-btn">
+                                <span>📖</span> معرفة القصة
+                            </a>
+                        </div>
+                        <span class="culture-icon">🗣️</span>
+                        <h3>اللغة الكوردية</h3>
+                        <p>فرع إيراني هندوأوروبي، تضم لهجات كورمانجي وسورانية وزازا، ولها أدب غني وشعر خالد.</p>
+                    </div>
+                </div>
+        </section>
+    </div>
+
+
+
+    <!-- HISTORY TIMELINE -->
+    <!-- MUSIC -->
+    <section id="music">
+        <div class="reveal">
+            <p class="section-label">الموسيقى</p>
+            <h2 class="section-title">ابرز المغنون في العصور الحالية<br><em>تراث غنائي كوردي</em></h2>
+            <p class="section-intro" style="color:rgba(240,232,208,0.6); max-width:800px; margin:8px auto 28px;">
+                مجموعة مختارة من الأصوات التي غرّدت على مدى عقود في كوردستان — قنوات رسمية وروابط مباشرة
+                للموسيقى.
+            </p>
+        </div>
+        <div class="heroes-grid reveal" style="margin-top:24px;">
+            <div class="hero-card">
+                <h3>Şivan Perwer</h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn"
+                        href="https://www.youtube.com/channel/UCiHIwm-e0FxZ3PY1PhXG53g" target="_blank"
+                        rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a></div>
+            </div>
+
+            <div class="hero-card">
+                <h3>Ciwan Haco</h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn" href="https://www.youtube.com/@CiwanHacoOfficial"
+                        target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <h3>Adnan Karim</h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn" href="https://www.youtube.com/@AdnanKarimOfficial"
+                        target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <h3>Aynur Doğan</h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn" href="https://www.youtube.com/@AynurDoganOfficial"
+                        target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <h3>Hassan Zirak</h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn"
+                        href="https://www.youtube.com/channel/UCGWmWceCXnBgbU65sw6vdjg" target="_blank"
+                        rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a></div>
+            </div>
+
+            <div class="hero-card">
+                <h3>Hozan Dino</h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn" href="https://www.youtube.com/@HozanDino" target="_blank"
+                        rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <h3>Helly Luv</h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn" href="https://www.youtube.com/@HellyLuvOfficial"
+                        target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <h3>Ibrahim Tatlises</h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn"
+                        href="https://www.youtube.com/channel/UCz1sDPtUPQ7BytUJ4fttcKg" target="_blank"
+                        rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a></div>
+            </div>
+
+            <div class="hero-card">
+                <h3>Rojda</h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn" href="https://www.youtube.com/@RojdaOfficial"
+                        target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <h3>Nizamettin Ariç</h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn" href="https://www.youtube.com/@NizamettinAric"
+                        target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <h3> Alend Hazem</h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn" href="https://youtube.com/@alendhazim?si=cLSqvEWRhViFOYIP"
+                        target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <h3>MemArarat</h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn" href="https://www.youtube.com/@MemArarat" target="_blank"
+                        rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <h3>Brader</h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn"
+                        href="https://youtube.com/@brader.official?si=JXXDQNIKwIvJKGbH" target="
+                        _blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <h3>Abdulqahar Zaxoyi</h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn" href="https://www.youtube.com/@AbdulqaharZaxoyiOfficial"
+                        target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a></div>
+            </div>
+            <div class="hero-card">
+                <h3>دلو دوغان</h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn" href="https://www.youtube.com/@dilodoxan" target="_blank"
+                        rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <h3>Xêro Abbas </h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn" href="http://www.youtube.com/@Xero_Abbas" target="_blank"
+                        rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <h3>Sherif omeri</h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn" href="http://www.youtube.com/@SherifOmeriOfficial"
+                        target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <h3>شاكرو</h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn"
+                        href="http://www.youtube.com/channel/UCHjH5dFyh_8vo-ouMl_ASbA" target="_blank"
+                        rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <h3>Ahmet Kaya</h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn" href="http://www.youtube.com/@AhmetKayaGam"
+                        target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <h3>Karwan Kamil</h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn" href="http://www.youtube.com/@karwankamil" target="_blank"
+                        rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <h3>Dashni Morad</h3>
+                <p>Bjit Kurdistan</p>
+                <div class="artist-actions"><a class="yt-btn" href="http://www.youtube.com/@DashniMoradOfficial"
+                        target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
+                </div>
+            </div>
+    </section>
+    <section id="history">
+        <div class="reveal">
+            <p class="section-label">عبر الزمن</p>
+            <h2 class="section-title">فصول من<br><em>التاريخ الكوردي</em></h2>
+        </div>
+        <div class="timeline">
+            <div class="t-event">
+                <div class="t-dot"></div>
+                <div class="t-year">القرن ١٢ م</div>
+                <h3 class="t-title">صلاح الدين الأيوبي — محرر القدس</h3>
+                <a href="https://ar.wikipedia.org/wiki/صلاح_الدين_الأيوبي" target="_blank" class="more-btn">📖
+                    المزيد</a>
+                <p class="t-desc">وُلد البطل الكوردي العظيم صلاح الدين في تكريت، وأسّس الدولة الأيوبية ووحّد
+                    الأمة
+                    الإسلامية، لينتزع بيت المقدس من الصليبيين عام ١١٨٧م بشهامة دوّنها التاريخ.</p>
+            </div>
+            <div class="t-event">
+                <div class="t-dot"></div>
+                <div class="t-year">القرن ١٧ م</div>
+                <h3 class="t-title">أحمدي خاني — ملحمة مم وزين</h3>
+                <a href="https://ar.wikipedia.org/wiki/أحمد_خاني" target="_blank" class="more-btn">📖 المزيد</a>
+                <p class="t-desc">نظم الشاعر الكوردي العبقري أحمدي خاني ملحمة "مم وزين" الشعرية، وهي رمز الهوية
+                    الكوردية
+                    وتاج الأدب الكوردي الكلاسيكي.</p>
+            </div>
+            <div class="t-event">
+                <div class="t-dot"></div>
+                <div class="t-year">١٩٢٣ م</div>
+                <h3 class="t-title">معاهدة لوزان والقضية الكوردية</h3>
+                <a href="https://ar.wikipedia.org/wiki/معاهدة_لوزان" target="_blank" class="more-btn">📖 المزيد</a>
+                <p class="t-desc">بعد تفكك الإمبراطورية العثمانية، لم تُحقق معاهدة لوزان حلم الدولة الكوردية
+                    المستقلة，
+                    لتبدأ مرحلة كفاح طويلة نحو الحقوق والهوية.</p>
+            </div>
+            <div class="t-event">
+                <div class="t-dot"></div>
+                <div class="t-year">٢٠٠٥ م</div>
+                <h3 class="t-title">إقليم كوردستان — الدستور العراقي</h3>
+                <a href="https://ar.wikipedia.org/wiki/إقليم_كردستان_العراق" target="_blank" class="more-btn">📖
+                    المزيد</a>
+                <p class="t-desc">اعترف الدستور العراقي الجديد بإقليم كوردستان كمنطقة فيدرالية، في انتصار لعقود
+                    من
+                    النضال والتضحية نحو الحكم الذاتي.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUOTE -->
+    <div id="quote">
+        <p class="quote-text">
+            "<em>الكورد</em> شعب لا يموت — يكسر الصخرة بصبره،<br>ويبني من الجراح <em>نوروزاً</em> جديداً"
+        </p>
+        <p class="quote-author">❋ &nbsp; من وحي الشعر الكوردي</p>
+    </div>
+
+    <!-- HEROES -->
+    <section id="heroes">
+        <div class="reveal">
+            <p class="section-label">أعلام الأمة</p>
+            <h2 class="section-title"><em>أبطال</em> كوردستان</h2>
+            <p class="section-intro">من الميادين إلى صفحات الكتب، صنع هؤلاء مجد أمة وحفروا أسماءهم في الخلود</p>
+        </div>
+        <div class="heroes-grid reveal">
+            <div class="hero-card">
+                <div class="hero-avatar">⚔️</div>
+                <h3>مصطفى البارزاني</h3>
+                <p>رمز النضال والمقاومة في كوردستان</p>
+                <span class="hero-era">ق. ١٢</span>
+            </div>
+            <div class="hero-card">
+                <div class="hero-avatar">📜</div>
+                <h3>قاضي محمد</h3>
+                <p>اول رئيس لجمهورية مهاباد 1946</p>
+                <span class="hero-era">ق. ١٧</span>
+            </div>
+            <div class="hero-card">
+                <div class="hero-avatar">🏔️</div>
+                <h3>الشيخ محمود الحفيد</h3>
+                <p>قاد ثورة كوردستان في العشرينيات مطالباً بالاستقلال، ويُعدّ أول من أعلن مملكة كوردستان</p>
+                <span class="hero-era">ق. ٢٠</span>
+            </div>
+            <div class="hero-card">
+                <div class="hero-avatar">🌹</div>
+                <h3>نالي — شاعر الحب</h3>
+                <p>أمير الشعر الكوردي الرومانسي، تُغنّى قصائده في كل ربوع كوردستان كأنها وُلدت للأبد</p>
+                <span class="hero-era">ق. ١٩</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="leader-card reveal">
+        <img src="https://www.hawlergov.org/app/files/480176712_1787579345152425_3662184971174942670_n.jpg"
+            alt="صورة مسعود بارزاني">
+        <div class="leader-content">
+            <h3>مسعود بارزاني</h3>
+            <p>مسعود بارزاني، زعيم بارز في الحياة السياسية الكوردية ورئيس إقليم كوردستان العراق سابقاً، رمز
+                للعملية
+                السياسية ودعم بناء المؤسسات.</p>
+            <p>تمثل قيادته فصلاً من فصول تطور الحكم الذاتي الكوردي، وساهم اسمه في ترسيخ الهوية الكوردية على
+                الساحة
+                الوطنية والدولية.</p>
+        </div>
+    </section>
+
+    <!-- NATURE -->
+    <section id="nature">
+        <div style="
+       background: linear-gradient(135deg, #1a3a2a, #2d6a4f);
+       border-radius: 20px;
+       max-width: 800px;
+       margin: 0 auto;
+       padding: 60px 40px;
+       text-align: center;
+   ">
+            <span style="font-size:60px;">🏔️</span>
+
+            <h2 style="color:white; font-size:32px; margin:20px 0 10px;">
+                جنة في قلب الشرق
+            </h2>
+
+            <p style="color:rgba(255,255,255,0.8); font-size:16px; line-height:1.8; margin-bottom:15px;">
+                من ثلوج جبل هلكورد إلى شلالات گالي علي بيگ الساحرة،
+                ومن السهول الخضراء إلى الأنهار الزرقاء — كوردستان طبيعة تبهر الأبصار.
+            </p>
+
+            <p style="color:rgba(255,255,255,0.7); font-size:15px; line-height:1.8; margin-bottom:30px;">
+                أربعة فصول، أربعة أوجه من الجمال 🌸❄️🍂☀️
+            </p>
+
+            <a href="https://youtu.be/HLml5SWtsgo" target="_blank" style="
+              background: #f5a623;
+              color: white;
+              padding: 14px 35px;
+              border-radius: 30px;
+              text-decoration: none;
+              font-size: 18px;
+              font-weight: bold;
+          ">
+                🎬 اكتشف
+            </a>
+        </div>
+    </section>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-sun">❋</div>
+        <div class="footer-name">كوردستان</div>
+        <div class="footer-sub">أرض الأبطال · Land of Heroes · Welatê Qehrımanan</div>
+        <div class="flag-footer">
+            <div class="flag-block" style="background:var(--red)"></div>
+            <div class="flag-block" style="background:var(--gold)"></div>
+            <div class="flag-block" style="background:var(--green)"></div>
+        </div>
+        <div class="footer-credit">تصميم الموقع بواسطة Mohammed Bahej</div>
+        <div class="footer-contact">
+            <p>تواصل معنا:</p>
+            <a href="https://www.instagram.com/mohammed_bahij1" target="_blank" rel="noopener noreferrer">
+                <span class="footer-icon">📷 instagram</span>
+            </a>
+        </div>
+    </footer>
+
+    <!-- External JavaScript (safe from CSP injection) -->
+    <script defer src="js/main.js"></script>
+    <div class="footer-about">
+        <h3>عن الموقع</h3>
+        <p>
+            موقع <strong>كوردستان — أرض الأبطال</strong> هو بوابتك الشاملة
+            للتعرف على الثقافة والتاريخ الكوردي العريق. يضم الموقع قصص
+            الأعياد كنوروز، والزي الكوردي التقليدي، واللغة الكوردية بلهجاتها
+            المتعددة، إضافةً إلى أبرز الأبطال والشخصيات التاريخية الكوردية.
+        </p>
+        <p>
+            كما يتيح الموقع الوصول المباشر لقنوات أشهر المغنيين الكورد
+            بضغطة واحدة، ويأخذك في جولة بصرية مذهلة لاستكشاف جمال
+            طبيعة كوردستان الخلابة.
+        </p>
+        <p>كل ما تحتاج معرفته عن كوردستان — في مكان واحد. 🌿</p>
+    </div>
+</body>
+
+</html>

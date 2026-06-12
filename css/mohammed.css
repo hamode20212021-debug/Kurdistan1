@@ -1,0 +1,26 @@
+.yt-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(245, 200, 66, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.more-btn {
+    font-size: 13px;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.more-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}

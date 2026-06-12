@@ -1,0 +1,26 @@
+<svg width="600" height="800" viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="barzaniTitle">
+  <title id="barzaniTitle">صورة مسعود برزاني</title>
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#102513" />
+      <stop offset="100%" stop-color="#0c1c12" />
+    </linearGradient>
+    <linearGradient id="faceGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5c842" />
+      <stop offset="100%" stop-color="#d4a32a" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#bgGrad)" rx="40" />
+  <circle cx="300" cy="260" r="148" fill="url(#faceGrad)" />
+  <ellipse cx="300" cy="520" rx="220" ry="160" fill="#1e3a18" opacity="0.9" />
+  <path d="M200 540 C220 420 380 420 400 540 C400 600 270 620 220 560 Z" fill="#163214" />
+  <path d="M215 240 C215 160 285 140 285 240" fill="#000" opacity="0.12" />
+  <path d="M322 240 C322 150 392 130 392 240" fill="#000" opacity="0.12" />
+  <circle cx="260" cy="250" r="18" fill="#111" />
+  <circle cx="340" cy="250" r="18" fill="#111" />
+  <path d="M235 330 C265 370 335 370 365 330" stroke="#111" stroke-width="14" stroke-linecap="round" fill="none" />
+  <path d="M210 410 C190 450 200 520 255 540" stroke="#0a0" stroke-width="18" fill="none" opacity="0.15" />
+  <path d="M390 410 C410 450 400 520 345 540" stroke="#0a0" stroke-width="18" fill="none" opacity="0.15" />
+  <text x="300" y="720" font-family="Cairo, sans-serif" font-size="38" font-weight="700" fill="#f5c842" text-anchor="middle">مسعود<br/>برزاني</text>
+  <text x="300" y="770" font-family="Tajawal, sans-serif" font-size="20" fill="#dcd2a5" text-anchor="middle">رئيس إقليم كوردستان سابقاً</text>
+</svg>
