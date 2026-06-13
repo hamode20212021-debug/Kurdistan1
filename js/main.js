@@ -116,5 +116,41 @@ document.addEventListener('contextmenu', (e) => {
     // This is optional - comment out if you want to allow right-click
     // e.preventDefault();
 });
+let lang = {
+    hello: 'مرحبا',
+    welcome: 'مرحبًا بكم في موقعنا',
+}
+en: {
+    hello: 'Hello',
+        welcome : 'Welcome to our site',
+}
+const lang = {
+    'ar': {
+        'welcome': 'مرحباً بكم في موقعنا',
+        'desc': 'هذا موقع متعدد اللغات.'
+    },
+    'en': {
+        'welcome': 'Welcome to our site',
+        'desc': 'This is a multi-language website.'
+    }
+};
 
+function updateLanguage(selectedLang) {
+    const nodes = document.querySelectorAll('[data-lang]');
+
+    nodes.forEach(node => {
+        const key = node.getAttribute('data-lang');
+        if (lang[selectedLang] && lang[selectedLang][key]) {
+            node.textContent = lang[selectedLang][key];
+        }
+    });
+
+    // تغيير اتجاه الصفحة بناءً على اللغة
+    document.body.dir = (selectedLang === 'ar') ? 'rtl' : 'ltr';
+}
+
+// تشغيل عند تغيير القائمة
+document.getElementById('language-selector').addEventListener('change', (e) => {
+    updateLanguage(e.target.value);
+});
 console.log('✓ Site loaded securely - DOM ready, particles running, UI attached.');
