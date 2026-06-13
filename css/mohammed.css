@@ -24,3 +24,127 @@
 .more-btn:hover {
     background: rgba(255, 255, 255, 0.3);
 }
+
+.rojava-section {
+    background: #161a22;
+    color: #fff;
+    padding: 80px 20px;
+}
+
+.rojava-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.rojava-hero {
+    height: 380px;
+    background: url('images/rojava-banner.jpg') center/cover;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.overlay h1 {
+    font-size: 60px;
+    color: #f7b500;
+    margin-bottom: 10px;
+}
+
+.overlay p {
+    font-size: 22px;
+}
+
+.rojava-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.stat-box {
+    background: #202634;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(247, 181, 0, .3);
+    transition: .3s;
+}
+
+.stat-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px rgba(247, 181, 0, .35);
+}
+
+.stat-box span {
+    font-size: 40px;
+}
+
+.stat-box h3 {
+    color: #f7b500;
+    margin: 10px 0;
+}
+
+.rojava-section h2 {
+    text-align: center;
+    color: #f7b500;
+    margin-bottom: 25px;
+}
+
+.rojava-map {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.rojava-map img {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 15px;
+    border: 3px solid #f7b500;
+}
+
+.rojava-content h3 {
+    color: #f7b500;
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+.rojava-content p {
+    line-height: 2;
+    color: #ddd;
+}
+
+.cities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.city-card {
+    background: #202634;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(247, 181, 0, .25);
+    transition: .3s;
+}
+
+.city-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 15px rgba(247, 181, 0, .3);
+}
+
+.city-card h4 {
+    color: #f7b500;
+    margin-bottom: 10px;
+}
