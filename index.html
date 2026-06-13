@@ -368,7 +368,7 @@
             position: absolute;
             inset: 0;
             background: linear-gradient(180deg, rgba(8, 16, 9, 0.96), rgba(8, 16, 9, 0.5) 55%, rgba(8, 16, 9, 0.96)),
-                url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Kurdistan_Flag_Map_2002_%28%DA%A9%D9%88%D8%B1%D8%AF%D8%B3%D8%AA%D8%A7%D9%86%DB%8C_%D8%A8%D8%A7%D8%B4%D9%88%D8%B1%29.png/960px-Kurdistan_Flag_Map_2002_%28%DA%A9%D9%88%D8%B1%D8%AF%D8%B3%D8%AA%D8%A7%D9%86%DB%8C_%D8%A8%D8%A7%D8%B4%D9%88%D8%B1%29.png") center/contain no-repeat;
+                url("images/new-map.jpg") center/contain no-repeat;
         }
 
         .land-overlay-text {
@@ -628,9 +628,14 @@
         .t-event {
             position: relative;
             padding: 0 60px 60px 0;
+            opacity: 1;
+            transform: none;
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        body.js .t-event {
             opacity: 0;
             transform: translateX(30px);
-            transition: opacity 0.6s, transform 0.6s;
         }
 
         .t-event.visible {
@@ -915,12 +920,17 @@
 
         /* ─── SCROLL REVEAL ─── */
         .reveal {
-            opacity: 0;
-            transform: translateY(40px);
+            opacity: 1;
+            transform: none;
             transition: opacity 0.7s, transform 0.7s;
         }
 
-        .reveal.visible {
+        body.js .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        body.js .reveal.visible {
             opacity: 1;
             transform: none;
         }
