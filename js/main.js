@@ -116,14 +116,7 @@ document.addEventListener('contextmenu', (e) => {
     // This is optional - comment out if you want to allow right-click
     // e.preventDefault();
 });
-let lang = {
-    hello: 'مرحبا',
-    welcome: 'مرحبًا بكم في موقعنا',
-}
-en: {
-    hello: 'Hello',
-        welcome : 'Welcome to our site',
-}
+
 const lang = {
     'ar': {
         'welcome': 'مرحباً بكم في موقعنا',
@@ -150,7 +143,12 @@ function updateLanguage(selectedLang) {
 }
 
 // تشغيل عند تغيير القائمة
-document.getElementById('language-selector').addEventListener('change', (e) => {
-    updateLanguage(e.target.value);
-});
+const languageSelector = document.getElementById('language-selector');
+if (languageSelector) {
+    languageSelector.addEventListener('change', (e) => {
+        updateLanguage(e.target.value);
+    });
+}
+
+document.body.classList.add('js');
 console.log('✓ Site loaded securely - DOM ready, particles running, UI attached.');

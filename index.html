@@ -628,9 +628,14 @@
         .t-event {
             position: relative;
             padding: 0 60px 60px 0;
+            opacity: 1;
+            transform: none;
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        body.js .t-event {
             opacity: 0;
             transform: translateX(30px);
-            transition: opacity 0.6s, transform 0.6s;
         }
 
         .t-event.visible {
@@ -915,12 +920,17 @@
 
         /* ─── SCROLL REVEAL ─── */
         .reveal {
-            opacity: 0;
-            transform: translateY(40px);
+            opacity: 1;
+            transform: none;
             transition: opacity 0.7s, transform 0.7s;
         }
 
-        .reveal.visible {
+        body.js .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        body.js .reveal.visible {
             opacity: 1;
             transform: none;
         }
@@ -929,10 +939,34 @@
         @media (max-width: 900px) {
             nav {
                 padding: 16px 24px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
             }
 
             .nav-links {
-                display: none;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                gap: 10px;
+                padding-top: 10px;
+                margin: 0;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                width: 100%;
+                padding: 10px 12px;
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.08);
+            }
+
+            .nav-links a:hover {
+                background: rgba(255, 255, 255, 0.15);
             }
 
             section {
