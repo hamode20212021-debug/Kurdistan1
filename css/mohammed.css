@@ -148,3 +148,25 @@
     color: #f7b500;
     margin-bottom: 10px;
 }
+
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* حل خاص لمشكلة الصورة التي تظهر كبيرة جداً */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* حل خاص للموقع إذا كان هناك أي عنصر يحتوي على عرض ثابت */
+body,
+html {
+    overflow-x: hidden;
+    /* يمنع ظهور شريط التمرير الأفقي المزعج */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
