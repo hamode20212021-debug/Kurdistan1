@@ -143,12 +143,7 @@ function updateLanguage(selectedLang) {
 }
 
 // تشغيل عند تغيير القائمة
-const languageSelector = document.getElementById('language-selector');
-if (languageSelector) {
-    languageSelector.addEventListener('change', (e) => {
-        updateLanguage(e.target.value);
-    });
-}
-
-document.body.classList.add('js');
+document.getElementById('language-selector').addEventListener('change', (e) => {
+    updateLanguage(e.target.value);
+});
 console.log('✓ Site loaded securely - DOM ready, particles running, UI attached.');

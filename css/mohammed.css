@@ -198,3 +198,18 @@ html {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.land-visual::before {
+    /* استبدل الرابط القديم بالمسار الجديد */
+    background-image: url('images/new-map.jpg');
+
+    /* تأكد من إضافة هذه الخصائص لتظهر الصورة بشكل صحيح */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.land-visual ::-ms-reveal::before {
+    display: none !important;
+    /* هذا السطر سيقوم بإخفاء أي شيء موجود في الـ before */
+}
