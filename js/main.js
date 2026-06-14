@@ -1,14 +1,17 @@
 // ── Particle system ──
 const canvas = document.getElementById('particles');
-const ctx = canvas.getContext('2d');
+const ctx = (canvas && canvas.getContext) ? canvas.getContext('2d') : null;
 let W, H, particles = [];
 
 function resize() {
+    if (!canvas || !ctx) return;
     W = canvas.width = window.innerWidth;
     H = canvas.height = window.innerHeight;
 }
-resize();
-window.addEventListener('resize', resize);
+if (canvas && ctx) {
+    resize();
+    window.addEventListener('resize', resize);
+}
 
 class Particle {
     constructor() { this.reset(); }
@@ -37,22 +40,26 @@ class Particle {
     }
 }
 
-for (let i = 0; i < 180; i++) particles.push(new Particle());
-function animParticles() {
-    ctx.clearRect(0, 0, W, H);
-    particles.forEach(p => { p.update(); p.draw(); });
-    ctx.globalAlpha = 1;
-    requestAnimationFrame(animParticles);
+if (canvas && ctx) {
+    for (let i = 0; i < 180; i++) particles.push(new Particle());
+    function animParticles() {
+        ctx.clearRect(0, 0, W, H);
+        particles.forEach(p => { p.update(); p.draw(); });
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(animParticles);
+    }
+    animParticles();
 }
-animParticles();
 
 // ── Build 21 sun rays ──
 const sunRays = document.getElementById('sunRays');
-for (let i = 0; i < 21; i++) {
-    const ray = document.createElement('div');
-    ray.className = 'ray';
-    ray.style.transform = `rotate(${i * (360 / 21)}deg)`;
-    sunRays.appendChild(ray);
+if (sunRays) {
+    for (let i = 0; i < 21; i++) {
+        const ray = document.createElement('div');
+        ray.className = 'ray';
+        ray.style.transform = `rotate(${i * (360 / 21)}deg)`;
+        sunRays.appendChild(ray);
+    }
 }
 
 // ── Scroll reveal ──
@@ -68,9 +75,11 @@ reveals.forEach(el => observer.observe(el));
 window.addEventListener('scroll', () => {
     const y = window.scrollY;
     const hero = document.getElementById('hero');
-    if (y < window.innerHeight) {
-        hero.querySelector('.mountains').style.transform = `translateY(${y * 0.25}px)`;
-        hero.querySelector('.sun-wrap').style.transform = `translate(-50%, calc(-58% + ${y * 0.15}px))`;
+    if (y < window.innerHeight && hero) {
+        const mountains = hero.querySelector('.mountains');
+        const sunWrap = hero.querySelector('.sun-wrap');
+        if (mountains) mountains.style.transform = `translateY(${y * 0.25}px)`;
+        if (sunWrap) sunWrap.style.transform = `translate(-50%, calc(-58% + ${y * 0.15}px))`;
     }
 });
 
@@ -106,7 +115,7 @@ document.querySelectorAll('#music .hero-card').forEach(card => {
     const name = card.querySelector('h3')?.textContent.trim();
     if (name && defaultAudio[name]) {
         const player = card.querySelector('.song-player');
-        player.src = defaultAudio[name];
+        if (player) player.src = defaultAudio[name];
     }
 });
 
@@ -117,33 +126,142 @@ document.addEventListener('contextmenu', (e) => {
     // e.preventDefault();
 });
 
-const lang = {
-    'ar': {
-        'welcome': 'مرحباً بكم في موقعنا',
-        'desc': 'هذا موقع متعدد اللغات.'
-    },
-    'en': {
-        'welcome': 'Welcome to our site',
-        'desc': 'This is a multi-language website.'
-    }
-};
+// ── Mobile Navigation Toggle ──
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
 
-function updateLanguage(selectedLang) {
-    const nodes = document.querySelectorAll('[data-lang]');
+if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('open');
+        navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('open');
+            navLinks.classList.remove('open');
+        });
+    });
+}
 
-    nodes.forEach(node => {
-        const key = node.getAttribute('data-lang');
-        if (lang[selectedLang] && lang[selectedLang][key]) {
-            node.textContent = lang[selectedLang][key];
+// ══════════════════════════════════════════
+//  LANGUAGE SWITCHER  (exposed on window so HTML onclick works)
+// ══════════════════════════════════════════
+const langNames = { ar: 'العربية', ku: 'Kurdî', en: 'English' };
+
+window.changeLanguage = function (lang) {
+    if (typeof translations === 'undefined' || !translations[lang]) return;
+
+    const dict = translations[lang];
+
+    // Auto-map existing Arabic text nodes to translation keys (so we don't need to annotate every element)
+    try {
+        const base = translations['ar'] || {};
+        const reverse = Object.keys(base).reduce((acc, k) => {
+            const v = (base[k] || '').toString().trim();
+            if (v) acc[v] = k;
+            return acc;
+        }, {});
+
+        // operate on leaf nodes only (no child elements)
+        document.querySelectorAll('body *:not(script):not(style)').forEach(el => {
+            if (el.hasAttribute && el.hasAttribute('data-translate')) return;
+            if (el.children && el.children.length) return;
+            const html = (el.innerHTML || '').toString().trim();
+            const text = (el.textContent || '').toString().trim();
+            if (!html && !text) return;
+            // prefer HTML match (for entries with tags), otherwise text
+            const key = reverse[html] || reverse[text];
+            if (key) {
+                el.setAttribute('data-translate', key);
+            }
+        });
+    } catch (e) { /* ignore auto-mapping errors */ }
+
+    // 1. Translate all [data-translate] elements
+    document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (dict[key] !== undefined) {
+            // Use innerHTML for entries containing HTML tags (em, br, a, strong)
+            if (/<[a-z]/i.test(dict[key])) {
+                el.innerHTML = dict[key];
+            } else {
+                el.textContent = dict[key];
+            }
         }
     });
 
-    // تغيير اتجاه الصفحة بناءً على اللغة
-    document.body.dir = (selectedLang === 'ar') ? 'rtl' : 'ltr';
+    // 2. Set page direction
+    const dir = (lang === 'en') ? 'ltr' : 'rtl';
+    document.documentElement.dir = dir;
+    document.documentElement.lang = lang;
+    document.body.dir = dir;
+
+    // 3. Update globe button label
+    const langCurrent = document.getElementById('langCurrent');
+    if (langCurrent) langCurrent.textContent = langNames[lang];
+
+    // 4. Highlight the active option
+    document.querySelectorAll('.lang-option').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+
+    // 5. Show checkmark on selected language only
+    ['ar', 'ku', 'en'].forEach(code => {
+        const el = document.getElementById('check-' + code);
+        if (el) el.textContent = (code === lang) ? '✓' : '';
+    });
+
+    // 6. Translate YouTube buttons (.yt-btn) if present
+    try {
+        const playKey = 'play_channel';
+        if (dict && dict[playKey]) {
+            const full = dict[playKey];
+            const text = full.replace(/^▶\s*/, '');
+            document.querySelectorAll('.yt-btn').forEach(a => {
+                const icon = a.querySelector('.yt-icon') ? a.querySelector('.yt-icon').outerHTML : '';
+                // replace inner HTML with icon + localized label
+                a.innerHTML = icon + ' ' + '<span class="yt-label">' + text + '</span>';
+            });
+        }
+    } catch (e) { /* ignore */ }
+
+    // 6. Persist choice
+    try { localStorage.setItem('kurdistan_lang', lang); } catch (e) { }
+
+    // 7. Close the dropdown
+    const switcher = document.getElementById('langSwitcher');
+    if (switcher) switcher.classList.remove('open');
+};
+
+// ── Globe button: open/close dropdown ──
+const langBtn = document.getElementById('langBtn');
+const langSwitcher = document.getElementById('langSwitcher');
+
+if (langBtn && langSwitcher) {
+    langBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        langSwitcher.classList.toggle('open');
+    });
+
+    // Close when clicking anywhere outside the switcher
+    document.addEventListener('click', function (e) {
+        if (!langSwitcher.contains(e.target)) {
+            langSwitcher.classList.remove('open');
+        }
+    });
 }
 
-// تشغيل عند تغيير القائمة
-document.getElementById('language-selector').addEventListener('change', (e) => {
-    updateLanguage(e.target.value);
-});
-console.log('✓ Site loaded securely - DOM ready, particles running, UI attached.');
+
+console.log('✓ Site loaded securely - DOM ready, particles running, lang system active.');
+
+// Apply saved language on load (falls back to Arabic)
+(function () {
+    let saved = null;
+    try { saved = localStorage.getItem('kurdistan_lang'); } catch (e) { saved = null; }
+    if (!saved) saved = 'ar';
+    // call the global function to apply translations and UI state
+    if (typeof window.changeLanguage === 'function') {
+        window.changeLanguage(saved);
+    }
+})();
+

@@ -12,6 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;700;900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="css/mohammed.css">
 
     <style>
         :root {
@@ -256,49 +257,8 @@
         }
 
         /* ─── SECTION BASE ─── */
-        section {
-            padding: 120px 60px;
-            max-width: 1280px;
-            margin: 0 auto;
-        }
 
-        .section-label {
-            font-size: 0.75rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 16px;
-        }
-
-        .btn-outline {
-            padding: 8px 12px;
-            border: 1px solid var(--gold);
-            color: var(--cream);
-            background: transparent;
-            border-radius: 6px;
-            text-decoration: none;
-            display: inline-block;
-            font-weight: 700;
-        }
-
-        .artist-actions {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 10px
-        }
-
-        .yt-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 10px;
-            border-radius: 6px;
-            background: rgba(255, 255, 255, 0.04);
-            color: var(--cream);
-            text-decoration: none;
-            border: 1px solid rgba(255, 255, 255, 0.04)
-        }
+        /* history block was duplicated here inside CSS by mistake - removed */
 
         .yt-icon {
             width: 18px;
@@ -443,6 +403,8 @@
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(245, 200, 66, 0.12);
             box-shadow: 0 0 40px rgba(0, 0, 0, 0.18);
+            padding: 0;
+            /* override section padding */
         }
 
         .leader-card img {
@@ -761,8 +723,8 @@
 
         /* ─── QUOTE BLOCK ─── */
         #quote {
-            width: 100vw;
-            margin-right: calc(-50vw + 50%);
+            width: 100%;
+            margin: 0;
             background: linear-gradient(135deg, #0d1f0d 0%, #1a3a1a 100%);
             position: relative;
             overflow: hidden;
@@ -870,8 +832,8 @@
 
         /* ─── FOOTER ─── */
         footer {
-            width: 100vw;
-            margin-right: calc(-50vw + 50%);
+            width: 100%;
+            margin: 0;
             background: #060806;
             padding: 60px;
             text-align: center;
@@ -935,43 +897,281 @@
             transform: none;
         }
 
+        /* Hamburger Button styles */
+        .nav-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 110;
+        }
+
+        .nav-toggle .hamburger {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--gold);
+            position: relative;
+            transition: background 0.3s;
+        }
+
+        .nav-toggle .hamburger::before,
+        .nav-toggle .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background: var(--gold);
+            transition: transform 0.3s;
+        }
+
+        .nav-toggle .hamburger::before {
+            top: -8px;
+        }
+
+        .nav-toggle .hamburger::after {
+            bottom: -8px;
+        }
+
+        /* Open State classes */
+        .nav-toggle.open .hamburger {
+            background: transparent;
+        }
+
+        .nav-toggle.open .hamburger::before {
+            transform: rotate(45deg);
+            top: 0;
+        }
+
+        .nav-toggle.open .hamburger::after {
+            transform: rotate(-45deg);
+            bottom: 0;
+        }
+
         /* ─── RESPONSIVE ─── */
         @media (max-width: 900px) {
             nav {
                 padding: 16px 24px;
             }
 
+            .nav-toggle {
+                display: block;
+            }
+
             .nav-links {
-                display: none;
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: rgba(10, 12, 10, 0.98);
+                backdrop-filter: blur(10px);
+                border-left: 1px solid rgba(245, 200, 66, 0.1);
+                padding: 100px 40px;
+                transition: right 0.4s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+                z-index: 105;
+                gap: 24px;
+                list-style: none;
+                align-items: flex-start;
+                text-align: right;
+            }
+
+            .nav-links.open {
+                right: 0;
             }
 
             section {
-                padding: 80px 24px;
+                padding: 60px 20px;
             }
 
             #land {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
 
-            #nature {
+            .land-visual {
+                height: 300px;
+            }
+
+            .map-content {
                 grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 0 20px;
+            }
+
+            .nature-tiles {
+                grid-template-columns: 1fr 1fr;
             }
 
             .culture-grid {
                 grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .culture-card {
+                aspect-ratio: 16/10;
+                border-radius: 8px;
             }
 
             .heroes-grid {
                 grid-template-columns: 1fr 1fr;
+                gap: 16px;
             }
 
             #quote {
-                padding: 80px 24px;
+                padding: 60px 20px;
             }
 
             footer {
-                padding: 40px 24px;
+                padding: 40px 20px;
             }
+
+            .timeline {
+                padding-right: 24px;
+                margin-top: 40px;
+            }
+
+            .t-event {
+                padding: 0 30px 40px 0;
+            }
+
+            .leader-content {
+                padding: 24px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .heroes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .land-stats {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .leader-content {
+                padding: 20px;
+            }
+        }
+
+        /* ─── LANGUAGE SWITCHER ─── */
+        .lang-switcher {
+            position: relative;
+            display: flex;
+            align-items: center;
+            z-index: 200;
+        }
+
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(245, 200, 66, 0.1);
+            border: 1px solid rgba(245, 200, 66, 0.35);
+            color: var(--cream);
+            padding: 7px 14px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            transition: background 0.3s, border-color 0.3s, transform 0.2s;
+            white-space: nowrap;
+        }
+
+        .lang-btn:hover {
+            background: rgba(245, 200, 66, 0.22);
+            border-color: rgba(245, 200, 66, 0.7);
+            transform: translateY(-1px);
+        }
+
+        .lang-globe {
+            font-size: 1.1rem;
+        }
+
+        .lang-arrow {
+            font-size: 0.7rem;
+            color: var(--gold);
+            transition: transform 0.3s;
+        }
+
+        .lang-switcher.open .lang-arrow {
+            transform: rotate(180deg);
+        }
+
+        .lang-dropdown {
+            display: none;
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(12, 15, 12, 0.97);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(245, 200, 66, 0.2);
+            border-radius: 14px;
+            min-width: 170px;
+            padding: 8px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(245, 200, 66, 0.08);
+            animation: dropFadeIn 0.25s ease;
+        }
+
+        .lang-switcher.open .lang-dropdown {
+            display: block;
+        }
+
+        @keyframes dropFadeIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            padding: 10px 14px;
+            background: transparent;
+            border: none;
+            color: rgba(240, 232, 208, 0.85);
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.92rem;
+            border-radius: 9px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            text-align: right;
+        }
+
+        .lang-option:hover {
+            background: rgba(245, 200, 66, 0.12);
+            color: var(--gold);
+        }
+
+        .lang-option.active {
+            background: rgba(245, 200, 66, 0.15);
+            color: var(--gold);
+        }
+
+        .lang-flag {
+            font-size: 1.1rem;
+        }
+
+        .lang-check {
+            margin-right: auto;
+            color: var(--gold);
+            font-size: 0.85rem;
+            font-weight: 700;
         }
     </style>
 </head>
@@ -980,19 +1180,49 @@
 
     <!-- NAV -->
     <nav>
-        <div class="nav-logo">❋ كوردستان</div>
+        <div class="nav-logo" data-translate="site_name">❋ كوردستان</div>
         <ul class="nav-links">
-            <li><a href="#land">الأرض</a></li>
-            <li><a href="#culture">الثقافة</a></li>
-            <li><a href="#music">الموسيقى</a></li>
-            <li><a href="#history">التاريخ</a></li>
-            <li><a href="#heroes">الأبطال</a></li>
-            <li><a href="#nature">الطبيعة</a></li>
-            <li><a href="#rojava">روجافا</a></li>
-            <li><a href="#bakur">باكور</a></li>
-            <li><a href="#rojhelat">روجهلات</a></li>
-            <li><a href="#bashur">باشور</a></li>
+            <li><a href="#land" data-translate="nav_land">الأرض</a></li>
+            <li><a href="#culture" data-translate="nav_culture">الثقافة</a></li>
+            <li><a href="#music" data-translate="nav_music">الموسيقى</a></li>
+            <li><a href="#history" data-translate="nav_history">التاريخ</a></li>
+            <li><a href="#heroes" data-translate="nav_heroes">الأبطال</a></li>
+            <li><a href="#nature" data-translate="nav_nature">الطبيعة</a></li>
+            <li><a href="#rojava" data-translate="nav_rojava">روجافا</a></li>
+            <li><a href="#bakur" data-translate="nav_bakur">باكور</a></li>
+            <li><a href="#rojhelat" data-translate="nav_rojhelat">روجهلات</a></li>
+            <li><a href="#bashur" data-translate="nav_bashur">باشور</a></li>
         </ul>
+
+        <!-- Language Switcher -->
+        <div class="lang-switcher" id="langSwitcher">
+            <button class="lang-btn" id="langBtn" aria-label="Select Language">
+                <span class="lang-globe">🌐</span>
+                <span class="lang-current" id="langCurrent">العربية</span>
+                <span class="lang-arrow">▾</span>
+            </button>
+            <div class="lang-dropdown" id="langDropdown">
+                <button class="lang-option active" data-lang="ar" onclick="changeLanguage('ar')">
+                    <span class="lang-flag">🇸🇦</span>
+                    <span>العربية</span>
+                    <span class="lang-check" id="check-ar">✓</span>
+                </button>
+                <button class="lang-option" data-lang="ku" onclick="changeLanguage('ku')">
+                    <span class="lang-flag">🌙</span>
+                    <span>Kurdî</span>
+                    <span class="lang-check" id="check-ku"></span>
+                </button>
+                <button class="lang-option" data-lang="en" onclick="changeLanguage('en')">
+                    <span class="lang-flag">🇬🇧</span>
+                    <span>English</span>
+                    <span class="lang-check" id="check-en"></span>
+                </button>
+            </div>
+        </div>
+
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span class="hamburger"></span>
+        </button>
     </nav>
 
 
@@ -1038,12 +1268,15 @@
         </div>
 
         <div class="hero-text">
-            <p class="hero-eyebrow">أرض الجبال والأبطال</p>
-            <h1 class="hero-title"><span>كوردستان</span></h1>
-            <p class="hero-sub">من جبال زاگروس إلى سهول أرض الرافدين — هذه أرض شعب ضارب جذوره في عمق الحضارة</p>
+            <p class="hero-eyebrow" data-translate="hero_eyebrow">أرض الجبال والأبطال</p>
+            <h1 class="hero-title"><span data-translate="hero_title">كوردستان</span></h1>
+            <p class="hero-sub" data-translate="hero_sub">من جبال زاگروس إلى سهول أرض الرافدين — هذه أرض شعب ضارب جذوره
+                في عمق الحضارة</p>
             <div class="hero-cta">
-                <button class="btn-primary scroll-to" data-target="#land">اكتشف الأرض</button>
-                <button class="btn-outline scroll-to" data-target="#culture">ثقافتنا</button>
+                <button class="btn-primary scroll-to" data-target="#land" data-translate="btn_discover">اكتشف
+                    الأرض</button>
+                <button class="btn-outline scroll-to" data-target="#culture"
+                    data-translate="btn_culture">ثقافتنا</button>
             </div>
         </div>
 
@@ -1057,33 +1290,33 @@
     <!-- LAND -->
     <section id="land">
         <div class="land-text reveal">
-            <p class="section-label">الجغرافيا</p>
-            <h2 class="section-title">كوردستان الكبرى<br><em>وحدها عبر الحدود</em></h2>
-            <p>كوردستان الكبرى — المنطقة الممتدة عبر أجزاء من تركيا والعراق وإيران وسوريا — موطن الشعب الكوردي منذ آلاف
-                السنين.
-                أرض تتنفس التاريخ في كل حجر وكل وادٍ.</p>
-            <p>من باشور إلى باكور، ومن روژآفا إلى ڕۆژھەڵات، تظل الثقافة الكوردية حية في قلب الجبال والسهول والأنهار.</p>
+            <p class="section-label" data-translate="land_label">الجغرافيا</p>
+            <h2 class="section-title" data-translate="land_title">كوردستان الكبرى<br><em>وحدها عبر الحدود</em></h2>
+            <p data-translate="land_desc1">كوردستان الكبرى — المنطقة الممتدة عبر أجزاء من تركيا والعراق وإيران وسوريا —
+                موطن الشعب الكوردي منذ آلاف السنين. أرض تتنفس التاريخ في كل حجر وكل وادٍ.</p>
+            <p data-translate="land_desc2">من باشور إلى باكور، ومن روژآفا إلى ڕۆژھەڵات، تظل الثقافة الكوردية حية في قلب
+                الجبال والسهول والأنهار.</p>
             <div class="land-stats">
                 <div class="stat-box">
-                    <div class="stat-num">٨٠٠٠+</div>
-                    <div class="stat-desc">سنة من التاريخ المتواصل</div>
+                    <div class="stat-num" data-translate="stat_history_val">٨٠٠٠+</div>
+                    <div class="stat-desc" data-translate="stat_history_lbl">سنة من التاريخ المتواصل</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-num">٤٠ م+</div>
-                    <div class="stat-desc">نفوس الكورد حول العالم</div>
+                    <div class="stat-num" data-translate="stat_pop_val">٤٠ م+</div>
+                    <div class="stat-desc" data-translate="stat_pop_lbl">نفوس الكورد حول العالم</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-num">+٣٠</div>
-                    <div class="stat-desc">المدن الكوردية</div>
+                    <div class="stat-num" data-translate="stat_cities_val">+٣٠</div>
+                    <div class="stat-desc" data-translate="stat_cities_lbl">المدن الكوردية</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-num">٢١</div>
-                    <div class="stat-desc">شعاعاً في شمس العلم</div>
+                    <div class="stat-num" data-translate="stat_rays_val">٢١</div>
+                    <div class="stat-desc" data-translate="stat_rays_lbl">شعاعاً في شمس العلم</div>
                 </div>
             </div>
         </div>
         <div class="land-visual reveal">
-            <div class="land-overlay-text">رؤية كوردستان من الخريطة
+            <div class="land-overlay-text" data-translate="map_overlay">رؤية كوردستان من الخريطة
                 <a href="https://www.google.com/maps/place/Kurdistan+Region" target="_blank"
                     style="color:#f5a623; text-decoration:underline;">
                     هنا 🗺️
@@ -1102,16 +1335,16 @@
                 alt="علم كوردستان">
         </div>
         <div class="map-info">
-            <h3>أسماء المناطق الكوردية</h3>
+            <h3 data-translate="map_names_title">أسماء المناطق الكوردية</h3>
             <ul>
-                <li>هولير / أربيل - قلب باشور، عاصمة إقليم كوردستان العراق.</li>
-                <li>السليمانية - مركز الثقافة والفنون الكوردية في باشور.</li>
-                <li>دهوك - بوابة الجبل ابن باشور.</li>
-                <li>كركوك - مدينة التقاء الشعوب والموروث التاريخي في جنوب كوردستان.</li>
-                <li>باشور - كوردستان العراق، أرض السلام والحكم الذاتي.</li>
-                <li>باكور - المنطقة الكوردية في تركيا، حاملة للهوية واللغة.</li>
-                <li>روژآفا - كوردستان سوريا، رمز الصمود والحياة المشتركة.</li>
-                <li>ڕۆژھەڵات - كوردستان إيران، جذور عميقة وتراث متواصل.</li>
+                <li data-translate="map_name_1">هولير / أربيل - قلب باشور، عاصمة إقليم كوردستان العراق.</li>
+                <li data-translate="map_name_2">السليمانية - مركز الثقافة والفنون الكوردية في باشور.</li>
+                <li data-translate="map_name_3">دهوك - بوابة الجبل ابن باشور.</li>
+                <li data-translate="map_name_4">كركوك - مدينة التقاء الشعوب والموروث التاريخي في جنوب كوردستان.</li>
+                <li data-translate="map_name_5">باشور - كوردستان العراق، أرض السلام والحكم الذاتي.</li>
+                <li data-translate="map_name_6">باكور - المنطقة الكوردية في تركيا، حاملة للهوية واللغة.</li>
+                <li data-translate="map_name_7">روژآفا - كوردستان سوريا، رمز الصمود والحياة المشتركة.</li>
+                <li data-translate="map_name_8">ڕۆژھەڵات - كوردستان إيران، جذور عميقة وتراث متواصل.</li>
             </ul>
         </div>
     </div>
@@ -1121,31 +1354,30 @@
         style="background: linear-gradient(180deg, var(--dark) 0%, rgba(26,122,60,0.05) 50%, var(--dark) 100%); padding: 0 0 20px;">
         <section id="culture" style="max-width:1280px; margin:0 auto; padding: 120px 60px 0;">
             <div class="reveal" style="text-align:center;">
-                <p class="section-label">الموروث الحضاري</p>
-                <h2 class="section-title">ثقافة تمتد<br><em>عبر الأجيال</em></h2>
+                <p class="section-label" data-translate="culture_label">الموروث الحضاري</p>
+                <h2 class="section-title" data-translate="culture_title">ثقافة تمتد<br><em>عبر الأجيال</em></h2>
             </div>
             <div class="culture-grid reveal">
                 <div class="culture-card c1">
                     <div class="culture-card-bg"></div>
                     <div class="culture-info">
                         <p>
-                        <h4>
-
-                            قصة عيد نوروز
-                        </h4>
+                        <h4 data-translate="story_nowruz_title">قصة عيد نوروز</h4>
                         <div class="btn-group" style="margin: 12px 0;" color="rgba(245, 200, 66, 0.8);">
                             <div class="btn-group" style="margin: 12px 0;">
                                 <a href="https://ar.wikipedia.org/wiki/%D9%86%D9%88%D8%B1%D9%88%D8%B2" target="_blank"
-                                    rel="noopener noreferrer" class="yt-btn">
-                                    <span class="culture-icon">📖</span> معرفة القصة
+                                    rel="noopener noreferrer" class="story-btn">
+                                    <span class="culture-icon">📖</span>
+                                    <span data-translate="story_read">معرفة القصة</span>
                                 </a>
                             </div>
 
                         </div>
                         <span class="culture-icon">🌿</span>
 
-                        <h3>نوروز — رأس السنة</h3>
-                        <p>الاحتفال الكوردي بقدوم الربيع في ٢١ مارس، رمز التجدد والحياة. يُحرق الاشتعال على القمم ويرقص
+                        <h3 data-translate="card_nowruz_title">نوروز — رأس السنة</h3>
+                        <p data-translate="card_nowruz_desc">الاحتفال الكوردي بقدوم الربيع في ٢١ مارس، رمز التجدد
+                            والحياة. يُحرق الاشتعال على القمم ويرقص
                             الشعب في زيٍّ تقليدي متعدد الألوان.</p>
                     </div>
                 </div>
@@ -1153,36 +1385,38 @@
                     <div class="culture-card-bg"></div>
                     <div class="culture-info">
                         <p>
-                        <h4>قصة الزي الكوردي</h4>
+                        <h4 data-translate="story_clothing_title">قصة الزي الكوردي</h4>
                         </p>
                         <div class="btn-group" style="margin: 12px 0;">
                             <a href="https://ar.wikipedia.org/wiki/%D8%B2%D9%8A_%D8%AA%D9%82%D9%84%D9%8A%D8%AF%D9%8A_%D9%83%D8%B1%D8%AF%D9%8A"
-                                target="_blank" rel="noopener noreferrer" class="yt-btn">
-                                <span>📖</span> معرفة القصة
+                                target="_blank" rel="noopener noreferrer" class="story-btn">
+                                <span>📖</span> <span data-translate="story_read">معرفة القصة</span>
                             </a>
                         </div>
                         <span class="culture-icon">👘</span>
-                        <h3>الزي الكوردي</h3>
-                        <p>ملابس تقليدية ترمز للهوية والتراث</p>
+                        <h3 data-translate="card_clothing_title">الزي الكوردي</h3>
+                        <p data-translate="card_clothing_desc">ملابس تقليدية ترمز للهوية والتراث</p>
                     </div>
                 </div>
                 <div class="culture-card c3">
                     <div class="culture-card-bg"></div>
                     <div class="culture-info">
                         <p>
-                        <h4>قصة اللغة الكوردية</h4>
+                        <h4 data-translate="story_language_title">قصة اللغة الكوردية</h4>
                         </p>
                         <div class="btn-group" style="margin: 12px 0;">
                             <a href="https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D9%84%D8%BA%D8%A9_%D8%A7%D9%84%D9%83%D9%88%D8%B1%D8%AF%D9%8A%D8%A9"
-                                target="_blank" rel="noopener noreferrer" class="yt-btn">
-                                <span>📖</span> معرفة القصة
+                                target="_blank" rel="noopener noreferrer" class="story-btn">
+                                <span>📖</span> <span data-translate="story_read">معرفة القصة</span>
                             </a>
                         </div>
                         <span class="culture-icon">🗣️</span>
-                        <h3>اللغة الكوردية</h3>
-                        <p>فرع إيراني هندوأوروبي، تضم لهجات كورمانجي وسورانية وزازا، ولها أدب غني وشعر خالد.</p>
+                        <h3 data-translate="card_language_title">اللغة الكوردية</h3>
+                        <p data-translate="card_language_desc">فرع إيراني هندوأوروبي، تضم لهجات كورمانجي وسورانية وزازا،
+                            ولها أدب غني وشعر خالد.</p>
                     </div>
                 </div>
+            </div>
         </section>
     </div>
 
@@ -1192,9 +1426,11 @@
     <!-- MUSIC -->
     <section id="music">
         <div class="reveal">
-            <p class="section-label">الموسيقى</p>
-            <h2 class="section-title">ابرز المغنون في العصور الحالية<br><em>تراث غنائي كوردي</em></h2>
-            <p class="section-intro" style="color:rgba(240,232,208,0.6); max-width:800px; margin:8px auto 28px;">
+            <p class="section-label" data-translate="music_label">الموسيقى</p>
+            <h2 class="section-title" data-translate="music_title">ابرز المغنون في العصور الحالية<br><em>تراث غنائي
+                    كوردي</em></h2>
+            <p class="section-intro" data-translate="music_intro"
+                style="color:rgba(240,232,208,0.6); max-width:800px; margin:8px auto 28px;">
                 مجموعة مختارة من الأصوات التي غرّدت على مدى عقود في كوردستان — قنوات رسمية وروابط مباشرة
                 للموسيقى.
             </p>
@@ -1202,15 +1438,16 @@
         <div class="heroes-grid reveal" style="margin-top:24px;">
             <div class="hero-card">
                 <h3>Şivan Perwer</h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn"
                         href="https://www.youtube.com/channel/UCiHIwm-e0FxZ3PY1PhXG53g" target="_blank"
-                        rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a></div>
+                        rel="noopener noreferrer"><span class="yt-icon">▶</span><span data-translate="play_channel">قناة
+                            يوتيوب</span></a></div>
             </div>
 
             <div class="hero-card">
                 <h3>Ciwan Haco</h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn" href="https://www.youtube.com/@CiwanHacoOfficial"
                         target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
                 </div>
@@ -1218,7 +1455,7 @@
 
             <div class="hero-card">
                 <h3>Adnan Karim</h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn" href="https://www.youtube.com/@AdnanKarimOfficial"
                         target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
                 </div>
@@ -1226,7 +1463,7 @@
 
             <div class="hero-card">
                 <h3>Aynur Doğan</h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn" href="https://www.youtube.com/@AynurDoganOfficial"
                         target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
                 </div>
@@ -1234,7 +1471,7 @@
 
             <div class="hero-card">
                 <h3>Hassan Zirak</h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn"
                         href="https://www.youtube.com/channel/UCGWmWceCXnBgbU65sw6vdjg" target="_blank"
                         rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a></div>
@@ -1242,7 +1479,7 @@
 
             <div class="hero-card">
                 <h3>Hozan Dino</h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn" href="https://www.youtube.com/@HozanDino" target="_blank"
                         rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
                 </div>
@@ -1250,7 +1487,7 @@
 
             <div class="hero-card">
                 <h3>Helly Luv</h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn" href="https://www.youtube.com/@HellyLuvOfficial"
                         target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
                 </div>
@@ -1258,7 +1495,7 @@
 
             <div class="hero-card">
                 <h3>Ibrahim Tatlises</h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn"
                         href="https://www.youtube.com/channel/UCz1sDPtUPQ7BytUJ4fttcKg" target="_blank"
                         rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a></div>
@@ -1266,7 +1503,7 @@
 
             <div class="hero-card">
                 <h3>Rojda</h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn" href="https://www.youtube.com/@RojdaOfficial"
                         target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
                 </div>
@@ -1274,7 +1511,7 @@
 
             <div class="hero-card">
                 <h3>Nizamettin Ariç</h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn" href="https://www.youtube.com/@NizamettinAric"
                         target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
                 </div>
@@ -1282,7 +1519,7 @@
 
             <div class="hero-card">
                 <h3> Alend Hazem</h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn" href="https://youtube.com/@alendhazim?si=cLSqvEWRhViFOYIP"
                         target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
                 </div>
@@ -1290,7 +1527,7 @@
 
             <div class="hero-card">
                 <h3>MemArarat</h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn" href="https://www.youtube.com/@MemArarat" target="_blank"
                         rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
                 </div>
@@ -1298,7 +1535,7 @@
 
             <div class="hero-card">
                 <h3>Brader</h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn"
                         href="https://youtube.com/@brader.official?si=JXXDQNIKwIvJKGbH" target="
                         _blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
@@ -1306,20 +1543,20 @@
             </div>
             <div class="hero-card">
                 <h3>Abdulqahar Zaxoyi</h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn" href="https://www.youtube.com/@AbdulqaharZaxoyiOfficial"
                         target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a></div>
             </div>
             <div class="hero-card">
                 <h3>دلو دوغان</h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn" href="https://www.youtube.com/@dilodoxan" target="_blank"
                         rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
                 </div>
             </div>
             <div class="hero-card">
                 <h3>Xêro Abbas </h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn" href="http://www.youtube.com/@Xero_Abbas" target="_blank"
                         rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
                 </div>
@@ -1327,14 +1564,14 @@
 
             <div class="hero-card">
                 <h3>Sherif omeri</h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn" href="http://www.youtube.com/@SherifOmeriOfficial"
                         target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
                 </div>
             </div>
             <div class="hero-card">
                 <h3>شاكرو</h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn"
                         href="http://www.youtube.com/channel/UCHjH5dFyh_8vo-ouMl_ASbA" target="_blank"
                         rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
@@ -1342,67 +1579,76 @@
             </div>
             <div class="hero-card">
                 <h3>Ahmet Kaya</h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn" href="http://www.youtube.com/@AhmetKayaGam"
                         target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
                 </div>
             </div>
             <div class="hero-card">
                 <h3>Karwan Kamil</h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn" href="http://www.youtube.com/@karwankamil" target="_blank"
                         rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
                 </div>
             </div>
             <div class="hero-card">
                 <h3>Dashni Morad</h3>
-                <p>Bjit Kurdistan</p>
+                <p data-translate="bjit_kurdistan">Bjit Kurdistan</p>
                 <div class="artist-actions"><a class="yt-btn" href="http://www.youtube.com/@DashniMoradOfficial"
                         target="_blank" rel="noopener noreferrer"><span class="yt-icon">▶</span>قناة يوتيوب</a>
                 </div>
             </div>
+        </div>
     </section>
     <section id="history">
         <div class="reveal">
-            <p class="section-label">عبر الزمن</p>
-            <h2 class="section-title">فصول من<br><em>التاريخ الكوردي</em></h2>
+            <p class="section-label" data-translate="history_label">عبر الزمن</p>
+            <h2 class="section-title" data-translate="history_title">فصول من<br><em>التاريخ الكوردي</em></h2>
         </div>
         <div class="timeline">
             <div class="t-event">
                 <div class="t-dot"></div>
-                <div class="t-year">القرن ١٢ م</div>
-                <h3 class="t-title">صلاح الدين الأيوبي — محرر القدس</h3>
-                <a href="https://ar.wikipedia.org/wiki/صلاح_الدين_الأيوبي" target="_blank" class="more-btn">📖
+                <div class="t-year" data-translate="hist_event1_year">القرن ١٢ م</div>
+                <h3 class="t-title" data-translate="hist_event1_title">صلاح الدين الأيوبي — محرر القدس</h3>
+                <a href="https://ar.wikipedia.org/wiki/صلاح_الدين_الأيوبي" target="_blank" class="more-btn"
+                    data-translate="hist_more">📖
                     المزيد</a>
-                <p class="t-desc">وُلد البطل الكوردي العظيم صلاح الدين في تكريت، وأسّس الدولة الأيوبية ووحّد
+                <p class="t-desc" data-translate="hist_event1_desc">وُلد البطل الكوردي العظيم صلاح الدين في تكريت، وأسّس
+                    الدولة الأيوبية ووحّد
                     الأمة
                     الإسلامية، لينتزع بيت المقدس من الصليبيين عام ١١٨٧م بشهامة دوّنها التاريخ.</p>
             </div>
             <div class="t-event">
                 <div class="t-dot"></div>
-                <div class="t-year">القرن ١٧ م</div>
-                <h3 class="t-title">أحمدي خاني — ملحمة مم وزين</h3>
-                <a href="https://ar.wikipedia.org/wiki/أحمد_خاني" target="_blank" class="more-btn">📖 المزيد</a>
-                <p class="t-desc">نظم الشاعر الكوردي العبقري أحمدي خاني ملحمة "مم وزين" الشعرية، وهي رمز الهوية
+                <div class="t-year" data-translate="hist_event2_year">القرن ١٧ م</div>
+                <h3 class="t-title" data-translate="hist_event2_title">أحمدي خاني — ملحمة مم وزين</h3>
+                <a href="https://ar.wikipedia.org/wiki/أحمد_خاني" target="_blank" class="more-btn"
+                    data-translate="hist_more">📖 المزيد</a>
+                <p class="t-desc" data-translate="hist_event2_desc">نظم الشاعر الكوردي العبقري أحمدي خاني ملحمة "مم
+                    وزين" الشعرية، وهي رمز الهوية
                     الكوردية
                     وتاج الأدب الكوردي الكلاسيكي.</p>
             </div>
             <div class="t-event">
                 <div class="t-dot"></div>
-                <div class="t-year">١٩٢٣ م</div>
-                <h3 class="t-title">معاهدة لوزان والقضية الكوردية</h3>
-                <a href="https://ar.wikipedia.org/wiki/معاهدة_لوزان" target="_blank" class="more-btn">📖 المزيد</a>
-                <p class="t-desc">بعد تفكك الإمبراطورية العثمانية، لم تُحقق معاهدة لوزان حلم الدولة الكوردية
+                <div class="t-year" data-translate="hist_event3_year">١٩٢٣ م</div>
+                <h3 class="t-title" data-translate="hist_event3_title">معاهدة لوزان والقضية الكوردية</h3>
+                <a href="https://ar.wikipedia.org/wiki/معاهدة_لوزان" target="_blank" class="more-btn"
+                    data-translate="hist_more">📖 المزيد</a>
+                <p class="t-desc" data-translate="hist_event3_desc">بعد تفكك الإمبراطورية العثمانية، لم تُحقق معاهدة
+                    لوزان حلم الدولة الكوردية
                     المستقلة，
                     لتبدأ مرحلة كفاح طويلة نحو الحقوق والهوية.</p>
             </div>
             <div class="t-event">
                 <div class="t-dot"></div>
-                <div class="t-year">٢٠٠٥ م</div>
-                <h3 class="t-title">إقليم كوردستان — الدستور العراقي</h3>
-                <a href="https://ar.wikipedia.org/wiki/إقليم_كردستان_العراق" target="_blank" class="more-btn">📖
+                <div class="t-year" data-translate="hist_event4_year">٢٠٠٥ م</div>
+                <h3 class="t-title" data-translate="hist_event4_title">إقليم كوردستان — الدستور العراقي</h3>
+                <a href="https://ar.wikipedia.org/wiki/إقليم_كردستان_العراق" target="_blank" class="more-btn"
+                    data-translate="hist_more">📖
                     المزيد</a>
-                <p class="t-desc">اعترف الدستور العراقي الجديد بإقليم كوردستان كمنطقة فيدرالية، في انتصار لعقود
+                <p class="t-desc" data-translate="hist_event4_desc">اعترف الدستور العراقي الجديد بإقليم كوردستان كمنطقة
+                    فيدرالية، في انتصار لعقود
                     من
                     النضال والتضحية نحو الحكم الذاتي.</p>
             </div>
@@ -1411,43 +1657,46 @@
 
     <!-- QUOTE -->
     <div id="quote">
-        <p class="quote-text">
+        <p class="quote-text" data-translate="quote_text">
             "<em>الكورد</em> شعب لا يموت — يكسر الصخرة بصبره،<br>ويبني من الجراح <em>نوروزاً</em> جديداً"
         </p>
-        <p class="quote-author">❋ &nbsp; من وحي الشعر الكوردي</p>
+        <p class="quote-author" data-translate="quote_author">❋ &nbsp; من وحي الشعر الكوردي</p>
     </div>
 
     <!-- HEROES -->
     <section id="heroes">
         <div class="reveal">
-            <p class="section-label">أعلام الأمة</p>
-            <h2 class="section-title"><em>أبطال</em> كوردستان</h2>
-            <p class="section-intro">من الميادين إلى صفحات الكتب، صنع هؤلاء مجد أمة وحفروا أسماءهم في الخلود</p>
+            <p class="section-label" data-translate="heroes_label">أعلام الأمة</p>
+            <h2 class="section-title" data-translate="heroes_title"><em>أبطال</em> كوردستان</h2>
+            <p class="section-intro" data-translate="heroes_intro">من الميادين إلى صفحات الكتب، صنع هؤلاء مجد أمة وحفروا
+                أسماءهم في الخلود</p>
         </div>
         <div class="heroes-grid reveal">
             <div class="hero-card">
                 <div class="hero-avatar">⚔️</div>
-                <h3>مصطفى البارزاني</h3>
-                <p>رمز النضال والمقاومة في كوردستان</p>
-                <span class="hero-era">ق. ١٢</span>
+                <h3 data-translate="hero1_title">مصطفى البارزاني</h3>
+                <p data-translate="hero1_desc">رمز النضال والمقاومة في كوردستان</p>
+                <span class="hero-era" data-translate="hero1_era">ق. ١٢</span>
             </div>
             <div class="hero-card">
                 <div class="hero-avatar">📜</div>
-                <h3>قاضي محمد</h3>
-                <p>اول رئيس لجمهورية مهاباد 1946</p>
-                <span class="hero-era">ق. ١٧</span>
+                <h3 data-translate="hero2_title">قاضي محمد</h3>
+                <p data-translate="hero2_desc">اول رئيس لجمهورية مهاباد 1946</p>
+                <span class="hero-era" data-translate="hero2_era">ق. ١٧</span>
             </div>
             <div class="hero-card">
                 <div class="hero-avatar">🏔️</div>
-                <h3>الشيخ محمود الحفيد</h3>
-                <p>قاد ثورة كوردستان في العشرينيات مطالباً بالاستقلال، ويُعدّ أول من أعلن مملكة كوردستان</p>
-                <span class="hero-era">ق. ٢٠</span>
+                <h3 data-translate="hero3_title">الشيخ محمود الحفيد</h3>
+                <p data-translate="hero3_desc">قاد ثورة كوردستان في العشرينيات مطالباً بالاستقلال، ويُعدّ أول من أعلن
+                    مملكة كوردستان</p>
+                <span class="hero-era" data-translate="hero3_era">ق. ٢٠</span>
             </div>
             <div class="hero-card">
                 <div class="hero-avatar">🌹</div>
-                <h3>نالي — شاعر الحب</h3>
-                <p>أمير الشعر الكوردي الرومانسي، تُغنّى قصائده في كل ربوع كوردستان كأنها وُلدت للأبد</p>
-                <span class="hero-era">ق. ١٩</span>
+                <h3 data-translate="hero4_title">نالي — شاعر الحب</h3>
+                <p data-translate="hero4_desc">أمير الشعر الكوردي الرومانسي، تُغنّى قصائده في كل ربوع كوردستان كأنها
+                    وُلدت للأبد</p>
+                <span class="hero-era" data-translate="hero4_era">ق. ١٩</span>
             </div>
         </div>
     </section>
@@ -1458,11 +1707,13 @@
                 style="max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
         </div>
         <div class="leader-content">
-            <h3>مسعود بارزاني</h3>
-            <p>مسعود بارزاني، زعيم بارز في الحياة السياسية الكوردية ورئيس إقليم كوردستان العراق سابقاً، رمز
+            <h3 data-translate="leader_title">مسعود بارزاني</h3>
+            <p data-translate="leader_desc1">مسعود بارزاني، زعيم بارز في الحياة السياسية الكوردية ورئيس إقليم كوردستان
+                العراق سابقاً، رمز
                 للعملية
                 السياسية ودعم بناء المؤسسات.</p>
-            <p>تمثل قيادته فصلاً من فصول تطور الحكم الذاتي الكوردي، وساهم اسمه في ترسيخ الهوية الكوردية على
+            <p data-translate="leader_desc2">تمثل قيادته فصلاً من فصول تطور الحكم الذاتي الكوردي، وساهم اسمه في ترسيخ
+                الهوية الكوردية على
                 الساحة
                 الوطنية والدولية.</p>
         </div>
@@ -1480,16 +1731,18 @@
    ">
             <span style="font-size:60px;">🏔️</span>
 
-            <h2 style="color:white; font-size:32px; margin:20px 0 10px;">
+            <h2 style="color:white; font-size:32px; margin:20px 0 10px;" data-translate="nature_title">
                 جنة في قلب الشرق
             </h2>
 
-            <p style="color:rgba(255,255,255,0.8); font-size:16px; line-height:1.8; margin-bottom:15px;">
+            <p style="color:rgba(255,255,255,0.8); font-size:16px; line-height:1.8; margin-bottom:15px;"
+                data-translate="nature_desc1">
                 من ثلوج جبل هلكورد إلى شلالات گالي علي بيگ الساحرة،
                 ومن السهول الخضراء إلى الأنهار الزرقاء — كوردستان طبيعة تبهر الأبصار.
             </p>
 
-            <p style="color:rgba(255,255,255,0.7); font-size:15px; line-height:1.8; margin-bottom:30px;">
+            <p style="color:rgba(255,255,255,0.7); font-size:15px; line-height:1.8; margin-bottom:30px;"
+                data-translate="nature_desc2">
                 أربعة فصول، أربعة أوجه من الجمال 🌸❄️🍂☀️
             </p>
 
@@ -1502,10 +1755,9 @@
               font-size: 18px;
               font-weight: bold;
           ">
-                🎬 اكتشف
+                <span data-translate="nature_btn">🎬 اكتشف</span>
             </a>
         </div>
-    </section>
     </section>
     <section id="rojava" class="rojava-section">
 
@@ -1513,8 +1765,8 @@
 
             <div class="rojava-hero">
                 <div class="overlay">
-                    <h1>🌄 Rojava</h1>
-                    <p>أرض التاريخ والمقاومة و الصمود انها ارض الابطال والشهداء</p>
+                    <h1 data-translate="reg_rojava_title">🌄 Rojava</h1>
+                    <p data-translate="reg_rojava_subtitle">أرض التاريخ والمقاومة و الصمود انها ارض الابطال والشهداء</p>
                 </div>
             </div>
 
@@ -1523,30 +1775,30 @@
                 <div class="stat-box">
                     <span>🏙️</span>
                     <h3>7+</h3>
-                    <p>مدن رئيسية</p>
+                    <p data-translate="reg_stat_cities">مدن رئيسية</p>
                 </div>
 
                 <div class="stat-box">
                     <span>👥</span>
                     <h3>ملايين</h3>
-                    <p>من السكان</p>
+                    <p data-translate="reg_stat_pop">من السكان</p>
                 </div>
 
                 <div class="stat-box">
                     <span>📜</span>
                     <h3>تاريخ عريق</h3>
-                    <p>آلاف السنين</p>
+                    <p data-translate="reg_stat_history">آلاف السنين</p>
                 </div>
 
                 <div class="stat-box">
                     <span>🎭</span>
                     <h3>تراث غني</h3>
-                    <p>ثقافة متنوعة</p>
+                    <p data-translate="reg_stat_culture">ثقافة متنوعة</p>
                 </div>
 
             </div>
 
-            <h2>📍 موقع روجافا على الخريطة</h2>
+            <h2 data-translate="reg_map_rojava">📍 موقع روجافا على الخريطة</h2>
 
             <div class="rojava-map">
                 <img src="https://www.medaratkurd.com/wp-content/uploads/Rojava_cities.png" alt="خريطة روجافا">
@@ -1554,77 +1806,77 @@
 
             <div class="rojava-content">
 
-                <h3>نبذة عن روجافا</h3>
+                <h3 data-translate="reg_about_title">نبذة عن روجافا</h3>
 
-                <p>
+                <p data-translate="reg_about_desc">
                     روجافا أو كوردستان الغربية هي الجزء الغربي من كوردستان،
                     وتقع ضمن شمال وشرق سوريا. تتميز بتاريخها العريق وثقافتها
                     الكوردية الغنية وطبيعتها الزراعية الجميلة التي جعلتها من
                     أهم المناطق الكوردية عبر التاريخ.
                 </p>
 
-                <h3>🏙️ المدن الرئيسية</h3>
+                <h3 data-translate="reg_cities_title">🏙️ المدن الرئيسية</h3>
 
                 <div class="cities-grid">
 
                     <div class="city-card">
-                        <h4>قامشلو</h4>
-                        <p>أكبر مدن روجافا ومركز اقتصادي وثقافي مهم.</p>
+                        <h4 data-translate="city_qamishli_title">قامشلو</h4>
+                        <p data-translate="city_qamishli_desc">أكبر مدن روجافا ومركز اقتصادي وثقافي مهم.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>كوباني</h4>
-                        <p>مدينة تاريخية معروفة بصمودها وأهميتها الوطنية.</p>
+                        <h4 data-translate="city_kobani_title">كوباني</h4>
+                        <p data-translate="city_kobani_desc">مدينة تاريخية معروفة بصمودها وأهميتها الوطنية.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>عفرين</h4>
-                        <p>تشتهر بجبالها وأشجار الزيتون والطبيعة الساحرة.</p>
+                        <h4 data-translate="city_afrin_title">عفرين</h4>
+                        <p data-translate="city_afrin_desc">تشتهر بجبالها وأشجار الزيتون والطبيعة الساحرة.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>الحسكة</h4>
-                        <p>من أكبر مدن المنطقة وتضم تنوعاً ثقافياً واسعاً.</p>
+                        <h4 data-translate="city_hasakah_title">الحسكة</h4>
+                        <p data-translate="city_hasakah_desc">من أكبر مدن المنطقة وتضم تنوعاً ثقافياً واسعاً.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>ديريك</h4>
-                        <p>مدينة جميلة تقع في أقصى شمال شرق سوريا.</p>
+                        <h4 data-translate="city_derik_title">ديريك</h4>
+                        <p data-translate="city_derik_desc">مدينة جميلة تقع في أقصى شمال شرق سوريا.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>سري كانيه</h4>
-                        <p>مدينة تاريخية اشتهرت بينابيعها وموقعها المميز.</p>
+                        <h4 data-translate="city_serekaniye_title">سري كانيه</h4>
+                        <p data-translate="city_serekaniye_desc">مدينة تاريخية اشتهرت بينابيعها وموقعها المميز.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>عامودا</h4>
-                        <p>مدينة ثقافية معروفة بتاريخها الأدبي والفني العريق.</p>
+                        <h4 data-translate="city_amuda_title">عامودا</h4>
+                        <p data-translate="city_amuda_desc">مدينة ثقافية معروفة بتاريخها الأدبي والفني العريق.</p>
                     </div>
 
                 </div>
 
-                <h3>📜 التاريخ</h3>
+                <h3 data-translate="reg_history_title">📜 التاريخ</h3>
 
-                <p>
+                <p data-translate="reg_history_desc">
                     شهدت روجافا تعاقب حضارات عديدة منذ آلاف السنين،
                     وكانت موطناً للعديد من الشعوب والثقافات. حافظ الكورد
                     على وجودهم التاريخي في المنطقة وأسهموا في بناء هويتها
                     الثقافية والاجتماعية عبر مختلف العصور.
                 </p>
 
-                <h3>🎭 الثقافة والتراث</h3>
+                <h3 data-translate="reg_culture_title">🎭 الثقافة والتراث</h3>
 
-                <p>
+                <p data-translate="reg_culture_desc">
                     تشتهر روجافا بالموسيقى الكوردية والدبكات الشعبية
                     والأزياء التقليدية والشعر والأدب الكوردي. وما زالت
                     هذه التقاليد حاضرة بقوة في المناسبات الاجتماعية
                     والثقافية.
                 </p>
 
-                <h3>🌿 الطبيعة</h3>
+                <h3 data-translate="reg_nature_title">🌿 الطبيعة</h3>
 
-                <p>
+                <p data-translate="reg_nature_desc">
                     تتميز المنطقة بالسهول الزراعية الواسعة وحقول القمح
                     والشعير، إضافة إلى المناطق الجبلية والتلال التي تضفي
                     على روجافا جمالاً طبيعياً فريداً.
@@ -1639,75 +1891,75 @@
 
         <div class="rojava-container">
 
-            <h2>🟢 Bakur</h2>
-            <p class="subtitle">كوردستان الشمالية</p>
+            <h2 data-translate="reg_bakur_title">🟢 Bakur</h2>
+            <p class="subtitle" data-translate="reg_bakur_subtitle">كوردستان الشمالية</p>
 
 
 
             <div class="rojava-content">
 
-                <h3>📍 الموقع</h3>
+                <h3 data-translate="reg_bakur_location">📍 الموقع</h3>
 
-                <p>
+                <p data-translate="reg_bakur_location_desc">
                     باكور هي الجزء الشمالي من كوردستان وتقع ضمن جنوب شرق تركيا.
                     تضم عدداً كبيراً من المدن الكوردية وتعتبر من أهم المناطق
                     الكوردية من حيث السكان والتاريخ والثقافة.
                 </p>
 
-                <h3>🏙️ المدن الرئيسية</h3>
+                <h3 data-translate="reg_cities_title">🏙️ المدن الرئيسية</h3>
 
                 <div class="cities-grid">
 
                     <div class="city-card">
-                        <h4>آمد (دياربكر)</h4>
-                        <p>العاصمة الثقافية للكورد في باكور.</p>
+                        <h4 data-translate="city_amed_title">آمد (دياربكر)</h4>
+                        <p data-translate="city_amed_desc">العاصمة الثقافية للكورد في باكور.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>وان</h4>
-                        <p>مدينة تاريخية تشتهر ببحيرة وان الشهيرة.</p>
+                        <h4 data-translate="city_wan_title">وان</h4>
+                        <p data-translate="city_wan_desc">مدينة تاريخية تشتهر ببحيرة وان الشهيرة.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>ماردين</h4>
-                        <p>مدينة ذات طابع معماري وتاريخي مميز.</p>
+                        <h4 data-translate="city_mardin_title">ماردين</h4>
+                        <p data-translate="city_mardin_desc">مدينة ذات طابع معماري وتاريخي مميز.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>شرناخ</h4>
-                        <p>من أهم المدن الكوردية جنوب شرقي تركيا.</p>
+                        <h4 data-translate="city_sirnak_title">شرناخ</h4>
+                        <p data-translate="city_sirnak_desc">من أهم المدن الكوردية جنوب شرقي تركيا.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>هكاري</h4>
-                        <p>تشتهر بجبالها الشاهقة وطبيعتها الخلابة.</p>
+                        <h4 data-translate="city_hakkari_title">هكاري</h4>
+                        <p data-translate="city_hakkari_desc">تشتهر بجبالها الشاهقة وطبيعتها الخلابة.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>باتمان</h4>
-                        <p>مدينة مهمة اقتصادياً وثقافياً.</p>
+                        <h4 data-translate="city_batman_title">باتمان</h4>
+                        <p data-translate="city_batman_desc">مدينة مهمة اقتصادياً وثقافياً.</p>
                     </div>
 
                 </div>
 
-                <h3>📜 التاريخ</h3>
+                <h3 data-translate="reg_history_title">📜 التاريخ</h3>
 
-                <p>
+                <p data-translate="reg_bakur_history_desc">
                     تمتلك باكور تاريخاً غنياً يعود لآلاف السنين،
                     وشهدت المنطقة قيام حضارات وممالك عديدة
                     وكان للكورد دور أساسي في تاريخها.
                 </p>
 
-                <h3>🎭 الثقافة</h3>
+                <h3 data-translate="reg_culture_title">🎭 الثقافة</h3>
 
-                <p>
+                <p data-translate="reg_bakur_culture_desc">
                     تشتهر باكور بالأدب الكوردي والموسيقى
                     والفلكلور الشعبي والرقصات التراثية.
                 </p>
 
-                <h3>🏔️ الطبيعة</h3>
+                <h3 data-translate="reg_nature_title">🏔️ الطبيعة</h3>
 
-                <p>
+                <p data-translate="reg_bakur_nature_desc">
                     تضم جبالاً شاهقة وأنهاراً وبحيرات جميلة
                     مثل بحيرة وان الشهيرة.
                 </p>
@@ -1719,72 +1971,72 @@
 
         <div class="rojava-container">
 
-            <h2>🔵 Rojhelat</h2>
-            <p class="subtitle">كوردستان الشرقية</p>
+            <h2 data-translate="reg_rojhelat_title">🔵 Rojhelat</h2>
+            <p class="subtitle" data-translate="reg_rojhelat_subtitle">كوردستان الشرقية</p>
 
             <div class="rojava-content">
 
-                <h3>📍 الموقع</h3>
+                <h3 data-translate="reg_bakur_location">📍 الموقع</h3>
 
-                <p>
+                <p data-translate="reg_rojhelat_location_desc">
                     روجهلات هي الجزء الشرقي من كوردستان وتقع ضمن غرب إيران،
                     وتعد من أقدم المناطق الكوردية تاريخياً وثقافياً.
                 </p>
 
-                <h3>🏙️ المدن الرئيسية</h3>
+                <h3 data-translate="reg_cities_title">🏙️ المدن الرئيسية</h3>
 
                 <div class="cities-grid">
 
                     <div class="city-card">
-                        <h4>سنندج</h4>
-                        <p>من أكبر المدن الكوردية في روجهلات.</p>
+                        <h4 data-translate="city_sanandaj_title">سنندج</h4>
+                        <p data-translate="city_sanandaj_desc">من أكبر المدن الكوردية في روجهلات.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>كرمانشاه</h4>
-                        <p>مدينة تاريخية مهمة ومركز اقتصادي كبير.</p>
+                        <h4 data-translate="city_kermanshah_title">كرمانشاه</h4>
+                        <p data-translate="city_kermanshah_desc">مدينة تاريخية مهمة ومركز اقتصادي كبير.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>مهاباد</h4>
-                        <p>مدينة ذات مكانة تاريخية بارزة.</p>
+                        <h4 data-translate="city_mahabad_title">مهاباد</h4>
+                        <p data-translate="city_mahabad_desc">مدينة ذات مكانة تاريخية بارزة.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>سقز</h4>
-                        <p>مدينة معروفة بثقافتها وتراثها الكوردي.</p>
+                        <h4 data-translate="city_saqqez_title">سقز</h4>
+                        <p data-translate="city_saqqez_desc">مدينة معروفة بثقافتها وتراثها الكوردي.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>بانه</h4>
-                        <p>مدينة حدودية تشتهر بالتجارة.</p>
+                        <h4 data-translate="city_baneh_title">بانه</h4>
+                        <p data-translate="city_baneh_desc">مدينة حدودية تشتهر بالتجارة.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>مريوان</h4>
-                        <p>مدينة جميلة تقع قرب بحيرة زريبار.</p>
+                        <h4 data-translate="city_mariwan_title">مريوان</h4>
+                        <p data-translate="city_mariwan_desc">مدينة جميلة تقع قرب بحيرة زريبار.</p>
                     </div>
 
                 </div>
 
-                <h3>📜 التاريخ</h3>
+                <h3 data-translate="reg_history_title">📜 التاريخ</h3>
 
-                <p>
+                <p data-translate="reg_rojhelat_history_desc">
                     شهدت روجهلات العديد من الأحداث والمحطات
                     التاريخية المهمة في تاريخ الشعب الكوردي،
                     وتضم عدداً من أقدم المدن الكوردية.
                 </p>
 
-                <h3>🎭 الثقافة</h3>
+                <h3 data-translate="reg_culture_title">🎭 الثقافة</h3>
 
-                <p>
+                <p data-translate="reg_rojhelat_culture_desc">
                     تشتهر المنطقة بالشعر والأدب الكوردي
                     والفنون الشعبية والموسيقى التراثية.
                 </p>
 
-                <h3>🌿 الطبيعة</h3>
+                <h3 data-translate="reg_nature_title">🌿 الطبيعة</h3>
 
-                <p>
+                <p data-translate="reg_rojhelat_nature_desc">
                     تضم جبال زاغروس والغابات والبحيرات
                     والمناظر الطبيعية الخلابة.
                 </p>
@@ -1796,74 +2048,74 @@
 
         <div class="rojava-container">
 
-            <h2>❤️ Bashur</h2>
-            <p class="subtitle">كوردستان الجنوبية - إقليم كوردستان العراق</p>
+            <h2 data-translate="reg_bashur_title">❤️ Bashur</h2>
+            <p class="subtitle" data-translate="reg_bashur_subtitle">كوردستان الجنوبية - إقليم كوردستان العراق</p>
 
 
             <div class="rojava-content">
 
-                <h3>📍 الموقع</h3>
+                <h3 data-translate="reg_bakur_location">📍 الموقع</h3>
 
-                <p>
+                <p data-translate="reg_bashur_location_desc">
                     باشور (كوردستان الجنوبية) يقع في شمال العراق،
                     ويُعد الإقليم الكوردي الرسمي ضمن العراق ويتميز
                     بحكم ذاتي وعاصمة هي أربيل.
                 </p>
 
-                <h3>🏙️ المدن الرئيسية</h3>
+                <h3 data-translate="reg_cities_title">🏙️ المدن الرئيسية</h3>
 
                 <div class="cities-grid">
 
                     <div class="city-card">
-                        <h4>أربيل</h4>
-                        <p>عاصمة إقليم كوردستان وأقدم مدينة مأهولة في العالم.</p>
+                        <h4 data-translate="city_erbil_title">أربيل</h4>
+                        <p data-translate="city_erbil_desc">عاصمة إقليم كوردستان وأقدم مدينة مأهولة في العالم.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>السليمانية</h4>
-                        <p>مدينة ثقافية وأدبية مهمة في كوردستان.</p>
+                        <h4 data-translate="city_sulaymaniyah_title">السليمانية</h4>
+                        <p data-translate="city_sulaymaniyah_desc">مدينة ثقافية وأدبية مهمة في كوردستان.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>دهوك</h4>
-                        <p>مدينة جميلة محاطة بالجبال والطبيعة الخضراء.</p>
+                        <h4 data-translate="city_duhok_title">دهوك</h4>
+                        <p data-translate="city_duhok_desc">مدينة جميلة محاطة بالجبال والطبيعة الخضراء.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>حلبجة</h4>
-                        <p>مدينة تاريخية معروفة بوقوع أحداث مؤلمة فيها.</p>
+                        <h4 data-translate="city_halabja_title">حلبجة</h4>
+                        <p data-translate="city_halabja_desc">مدينة تاريخية معروفة بوقوع أحداث مؤلمة فيها.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>زاخو</h4>
-                        <p>مدينة حدودية مهمة تربط العراق بتركيا.</p>
+                        <h4 data-translate="city_zakho_title">زاخو</h4>
+                        <p data-translate="city_zakho_desc">مدينة حدودية مهمة تربط العراق بتركيا.</p>
                     </div>
 
                     <div class="city-card">
-                        <h4>عقرة</h4>
-                        <p>مدينة جبلية جميلة وطبيعة خلابة.</p>
+                        <h4 data-translate="city_aqrah_title">عقرة</h4>
+                        <p data-translate="city_aqrah_desc">مدينة جبلية جميلة وطبيعة خلابة.</p>
                     </div>
 
                 </div>
 
-                <h3>📜 التاريخ</h3>
+                <h3 data-translate="reg_history_title">📜 التاريخ</h3>
 
-                <p>
+                <p data-translate="reg_bashur_history_desc">
                     يمتلك باشور تاريخاً عريقاً جداً ويعتبر اليوم
                     الجزء الأكثر استقراراً من كوردستان ويتمتع
                     بحكم ذاتي داخل العراق.
                 </p>
 
-                <h3>🎭 الثقافة</h3>
+                <h3 data-translate="reg_culture_title">🎭 الثقافة</h3>
 
-                <p>
+                <p data-translate="reg_bashur_culture_desc">
                     تشتهر المنطقة بالموسيقى الكوردية الحديثة
                     والتراث الشعبي والمهرجانات الثقافية الكبيرة.
                 </p>
 
-                <h3>🏔️ الطبيعة</h3>
+                <h3 data-translate="reg_nature_title">🏔️ الطبيعة</h3>
 
-                <p>
+                <p data-translate="reg_bashur_nature_desc">
                     تضم جبال شاهقة مثل جبال هلكورد، وشلالات
                     ووديان خضراء وطبيعة خلابة جداً.
                 </p>
@@ -1878,48 +2130,48 @@
     <footer>
 
         <div class="footer-sun">❋</div>
-        <div class="footer-name">كوردستان</div>
-        <div class="footer-sub">أرض الأبطال · Land of Heroes · Welatê Qehrımanan</div>
+        <div class="footer-name" data-translate="footer_name">كوردستان</div>
+        <div class="footer-sub" data-translate="footer_sub">أرض الأبطال · Land of Heroes · Welatê Qehremanan</div>
         <div class="flag-footer">
             <div class="flag-block" style="background:var(--red)"></div>
             <div class="flag-block" style="background:var(--gold)"></div>
             <div class="flag-block" style="background:var(--green)"></div>
         </div>
-        <div class="footer-credit">تصميم الموقع بواسطة Mohammed Bahej</div>
-        <div class="footer-contact">
-            <p>تواصل معنا:</p>
-            <a href="https://www.instagram.com/mohammed_bahij1" target="_blank" rel="noopener noreferrer">
+
+        <div class="footer-contact" style="margin-top: 20px;">
+            <p data-translate="footer_contact">تواصل معنا:</p>
+            <a href="https://www.instagram.com/mohammed_bahij1" target="_blank" rel="noopener noreferrer"
+                style="color: var(--gold); text-decoration: none;">
                 <span class="footer-icon">📷 instagram</span>
             </a>
-            <footer class="footer">
-                <img src="images/maxresdefault.jpg" alt="صورة كوردستان" class="footer-logo">
+        </div>
 
-                <div class="footer-sun">✽</div>
-                <div class="footer-name">كوردستان</div>
-                <div class="footer-sub">أرض الأبطال - Land of Heroes - Welatê Qehremanan</div>
+        <div class="footer-about"
+            style="margin-top: 30px; max-width: 600px; margin-left: auto; margin-right: auto; color: rgba(240, 232, 208, 0.65); font-size: 0.9rem; line-height: 1.8;">
+            <h3 data-translate="footer_about_title">عن الموقع</h3>
+            <p data-translate="footer_about_desc1" style="margin-top: 10px;">
+                موقع <strong>كوردستان — أرض الأبطال</strong> هو بوابتك الشاملة
+                للتعرف على الثقافة والتاريخ الكوردي العريق. يضم الموقع قصص
+                الأعياد كنوروز، والزي الكوردي التقليدي، واللغة الكوردية بلهجاتها
+                المتعددة، إضافةً إلى أبرز الأبطال والشخصيات التاريخية الكوردية.
+            </p>
+            <p data-translate="footer_about_desc2" style="margin-top: 10px;">
+                كما يتيح الموقع الوصول المباشر لقنوات أشهر المغنيين الكورد
+                بضغطة واحدة، ويأخذك في جولة بصرية مذهلة لاستكشاف جمال
+                طبيعة كوردستان الخلابة.
+            </p>
+            <p data-translate="footer_about_desc3" style="margin-top: 10px;">كل ما تحتاج معرفته عن كوردستان — في مكان
+                واحد. 🌿</p>
+        </div>
 
-            </footer>
+        <div class="footer-credit" style="margin-top: 40px; font-size: 0.85rem; color: rgba(245, 200, 66, 0.65);"
+            data-translate="footer_credit">تصميم
+            الموقع بواسطة Mohammed Bahej</div>
     </footer>
 
-
-
     <!-- External JavaScript (safe from CSP injection) -->
-    <script defer src="js/main.js"></script>
-    <div class="footer-about">
-        <h3>عن الموقع</h3>
-        <p>
-            موقع <strong>كوردستان — أرض الأبطال</strong> هو بوابتك الشاملة
-            للتعرف على الثقافة والتاريخ الكوردي العريق. يضم الموقع قصص
-            الأعياد كنوروز، والزي الكوردي التقليدي، واللغة الكوردية بلهجاتها
-            المتعددة، إضافةً إلى أبرز الأبطال والشخصيات التاريخية الكوردية.
-        </p>
-        <p>
-            كما يتيح الموقع الوصول المباشر لقنوات أشهر المغنيين الكورد
-            بضغطة واحدة، ويأخذك في جولة بصرية مذهلة لاستكشاف جمال
-            طبيعة كوردستان الخلابة.
-        </p>
-        <p>كل ما تحتاج معرفته عن كوردستان — في مكان واحد. 🌿</p>
-    </div>
+    <script src="js/translations.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
 

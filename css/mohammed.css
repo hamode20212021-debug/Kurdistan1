@@ -10,6 +10,45 @@
     font-weight: bold;
 }
 
+/* Story buttons: rectangular, icon + label inside a neat card */
+.story-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    color: #f7b500;
+    padding: 10px 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid rgba(247, 181, 0, 0.12);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
+
+.story-btn .culture-icon,
+.story-btn span:first-child {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    background: rgba(247, 181, 0, 0.12);
+    color: #f7b500;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.story-btn .yt-label,
+.story-btn .story-label {
+    color: inherit;
+}
+
+.story-btn:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(247, 181, 0, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+}
+
 .more-btn {
     font-size: 13px;
     background: rgba(255, 255, 255, 0.15);
@@ -38,7 +77,7 @@
 
 .rojava-hero {
     height: 380px;
-    background: url('images/rojava-banner.jpg') center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/maxresdefault.jpg') center/cover;
     border-radius: 20px;
     overflow: hidden;
     margin-bottom: 40px;
@@ -47,7 +86,7 @@
 .overlay {
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, .5);
+    background: rgba(0, 0, 0, .4);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,13 +95,14 @@
 }
 
 .overlay h1 {
-    font-size: 60px;
+    font-size: clamp(2.2rem, 6vw, 60px);
     color: #f7b500;
     margin-bottom: 10px;
 }
 
 .overlay p {
-    font-size: 22px;
+    font-size: clamp(1rem, 3vw, 22px);
+    padding: 0 15px;
 }
 
 .rojava-stats {
@@ -200,16 +240,45 @@ html {
 }
 
 .land-visual::before {
-    /* استبدل الرابط القديم بالمسار الجديد */
-    background-image: url('images/new-map.jpg');
-
-    /* تأكد من إضافة هذه الخصائص لتظهر الصورة بشكل صحيح */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    /* استبدل الرابط القديم بالمسار الجديد وحافظ على التدرج اللوني */
+    background: linear-gradient(180deg, rgba(8, 16, 9, 0.96), rgba(8, 16, 9, 0.5) 55%, rgba(8, 16, 9, 0.96)),
+        url('../images/new-map.jpg') center/contain no-repeat;
 }
 
 .land-visual ::-ms-reveal::before {
     display: none !important;
     /* هذا السطر سيقوم بإخفاء أي شيء موجود في الـ before */
+}
+
+/* responsive media queries for mohammed.css */
+@media (max-width: 768px) {
+    .rojava-section {
+        padding: 40px 15px;
+    }
+
+    .rojava-hero {
+        height: 240px;
+        margin-bottom: 25px;
+        border-radius: 12px;
+    }
+
+    .rojava-stats {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 12px;
+        margin-bottom: 30px;
+    }
+
+    .stat-box {
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .stat-box span {
+        font-size: 30px;
+    }
+
+    .cities-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
 }
