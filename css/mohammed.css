@@ -282,3 +282,84 @@ html {
         gap: 12px;
     }
 }
+
+/* Influencer Card Styles */
+.influencer-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 60px 32px !important;
+    min-height: 500px;
+    justify-content: flex-start;
+}
+
+.hero-avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    margin: 0 auto 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    border: 3px solid rgba(245, 200, 66, 0.4);
+    background: rgba(245, 200, 66, 0.08);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.hero-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.influencer-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(245, 200, 66, 0.3);
+    background: rgba(245, 200, 66, 0.08);
+    color: rgba(245, 200, 66, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.influencer-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+.influencer-card p {
+    font-size: 0.95rem;
+    color: rgba(240, 232, 208, 0.7);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+
+.social-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.social-icon:hover {
+    background: rgba(245, 200, 66, 0.25);
+    border-color: rgba(245, 200, 66, 0.6);
+    color: rgba(245, 200, 66, 1);
+    transform: translateY(-3px);
+}

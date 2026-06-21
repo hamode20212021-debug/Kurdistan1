@@ -3,6 +3,7 @@ const translations = {
         nav_land: "الأرض",
         nav_culture: "الثقافة",
         nav_music: "الموسيقى",
+        nav_influencers: "المؤثرون",
         nav_history: "التاريخ",
         nav_heroes: "الأبطال",
         nav_nature: "الطبيعة",
@@ -62,6 +63,12 @@ const translations = {
         music_intro: "مجموعة مختارة من الأصوات التي غرّدت على مدى عقود في كوردستان — قنوات رسمية وروابط مباشرة للموسيقى.",
         play_channel: "▶ قناة يوتيوب",
         bjit_kurdistan: "بجيت كوردستان",
+
+        influencers_label: "المؤثرون",
+        influencers_title: "أبرز المؤثرون الكورد<br><em>نجوم وسائل التواصل الاجتماعي</em>",
+        influencers_intro: "مجموعة مختارة من أشهر المؤثرين الكورد على وسائل التواصل الاجتماعي — شخصيات مشهورة وملهمة في المجتمع الكوردي.",
+        influencer_ibrahem_title: "Ibrahem Rhe21",
+        influencer_ibrahem_bio: "من أبرز الشخصيات المؤثرة في مدينة قامشلو، يُعد إبراهيم رحي واحداً من الوجوه الكردية المعروفة على منصات التواصل الاجتماعي. اشتهر بمحتواه الهادف الذي يركز على اللغة الكردية، والهوية القومية، والتعريف بتاريخ وثقافة كوردستان. استطاع من خلال أسلوبه البسيط والقريب من الناس أن يترك أثراً إيجابياً لدى مختلف الفئات العمرية، من الشباب إلى الكبار، مما جعله شخصية محبوبة وتحظى بمتابعة واسعة واحترام كبير بين أبناء المجتمع الكردي.",
 
         history_label: "عبر الزمن",
         history_title: "فصول من<br><em>التاريخ الكوردي</em>",
@@ -210,6 +217,7 @@ const translations = {
         nav_land: "Land",
         nav_culture: "Culture",
         nav_music: "Music",
+        nav_influencers: "Influencers",
         nav_history: "History",
         nav_heroes: "Heroes",
         nav_nature: "Nature",
@@ -269,6 +277,12 @@ const translations = {
         music_intro: "A curated selection of voices that have sung for decades in Kurdistan — official channels and direct links.",
         play_channel: "▶ YouTube Channel",
         bjit_kurdistan: "Bjit Kurdistan",
+
+        influencers_label: "Influencers",
+        influencers_title: "Prominent Kurdish Influencers<br><em>Social Media Stars</em>",
+        influencers_intro: "A curated selection of the most famous Kurdish influencers on social media — prominent and inspiring figures in the Kurdish community.",
+        influencer_ibrahem_title: "Ibrahem Rhe21",
+        influencer_ibrahem_bio: "One of the most influential personalities in Qamishli, Ibrahim Rhe21 is a well-known Kurdish figure on social media platforms. He has gained fame for his meaningful content that focuses on the Kurdish language, national identity, and introducing the history and culture of Kurdistan. Through his simple and approachable style, he has managed to make a positive impact on various age groups, from youth to adults, making him a beloved personality with wide followership and great respect among members of the Kurdish community.",
 
         history_label: "Through Time",
         history_title: "Chapters of<br><em>Kurdish History</em>",
@@ -417,6 +431,7 @@ const translations = {
         nav_land: "Erd",
         nav_culture: "Kultûr",
         nav_music: "Muzîk",
+        nav_influencers: "Bandorker",
         nav_history: "Dîrok",
         nav_heroes: "Leheng",
         nav_nature: "Xweza",
@@ -476,6 +491,12 @@ const translations = {
         music_intro: "Hilbijartinek ji dengên ku bi dehan salan li Kurdistanê xwendine — kanalên fermî û lînkên rasterast.",
         play_channel: "▶ Kanala YouTube",
         bjit_kurdistan: "Bijî Kurdistan",
+
+        influencers_label: "Bandorker",
+        influencers_title: "Bandorkerên Navdar ên Kurd<br><em>Stêrkên Medyaya Civakî</em>",
+        influencers_intro: "Hilbijartinek ji bandorkerên navdar ên Kurd li ser medyaya civakî — kesan ên navdar û ilhamderekî di civaka Kurd de.",
+        influencer_ibrahem_title: "Ibrahem Rhe21",
+        influencer_ibrahem_bio: "Wek yek ji kesên bandorker ên navdar di bajarakî Qamişloyê de, Ibrahîm Rhe21 yek ji rûyên Kurdî yên navdar li ser platformên medyaya civakî ye. Ew nav bi xwe warkiriye bi navcivîya wî ya armancdar a ku li ser zimanê Kurdî, nasname ya neteweyî û naskirina mîrata û çanda Kurdistanê baldar e. Bi riya tarzê wî ya sade û nêzî kesanet, karibt tesîra erênî li ser komên cûrbecûr ên temenê, ji ciwan heta xwendekar, li dû xwe bikişîne, tişt ku wî persoyek lezgîn û xwedan şop-balafirî ya berfireh û rêzgiranî mezin di navbera civaka Kurd de kirine.",
 
         history_label: "Di Dîrokê De",
         history_title: "Beşên ji<br><em>Dîroka Kurdî</em>",
