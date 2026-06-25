@@ -8,7 +8,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title> كوردستان - أرض الأبطال | تاريخ وثقافة ولغة كوردية </title>
     <meta name="description"
-        content="موقع كوردستان - أرض الأبطال، تعرف على التاريخ الكوردي والثقافة واللغة والأزياء والأماكن السياحية في كوردستان">
+        content="موقع كوردستان - أرض الأبطال، تعرف على التاريخ الكوردي والثقافة واللغة والأزياء والأماكن السياحية في كوردستان. اكتشف شخصيات تاريخية كوردية، السياحة في أربيل والسليمانية ودهوك.">
+    <meta name="keywords"
+        content="كوردستان, تاريخ كوردستان, ثقافة كوردية, اللغة الكوردية, تعلم الكوردية, سياحة في كوردستان, أربيل, السليمانية, دهوك, روجافا, شخصيات كوردية, قاضي محمد, ملا مصطفى البارزاني, Kurdistan, Kurdish history, Kurdish language">
+    <meta property="og:title" content="كوردستان - أرض الأبطال | تاريخ وثقافة ولغة كوردية">
+    <meta property="og:description" content="تعرف على التاريخ الكوردي والثقافة واللغة والأزياء والأماكن السياحية في كوردستان.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="كوردستان - أرض الأبطال">
+    <meta name="twitter:description" content="اكتشف التاريخ، الثقافة، والشخصيات الكوردية العظيمة عبر موقع كوردستان.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -137,6 +145,17 @@
             border-radius: 50%;
             background: var(--gold);
             box-shadow: 0 0 30px rgba(245, 200, 66, 0.6) inset;
+        }
+
+        @media (max-width: 768px) {
+            .sun-wrap {
+                top: -30px;
+            }
+
+            .sun {
+                width: 100px;
+                height: 100px;
+            }
         }
 
         .hero-text {
@@ -1434,7 +1453,8 @@
                 <div class="t-dot"></div>
                 <div class="t-year" data-translate="hist_event1_year">القرن ١٢ م</div>
                 <h3 class="t-title" data-translate="hist_event1_title">صلاح الدين الأيوبي — محرر القدس</h3>
-                <button onclick="openStory('salahaddin')" class="more-btn" style="border: none; background: none; font: inherit; cursor: pointer;">
+                <button onclick="openStory('salahaddin')" class="more-btn"
+                    style="border: none; background: none; font: inherit; cursor: pointer;">
                     <span data-translate="hist_more">📖 المزيد</span>
                 </button>
                 <p class="t-desc" data-translate="hist_event1_desc">وُلد البطل الكوردي العظيم صلاح الدين في تكريت، وأسّس
@@ -1446,7 +1466,8 @@
                 <div class="t-dot"></div>
                 <div class="t-year" data-translate="hist_event2_year">القرن ١٧ م</div>
                 <h3 class="t-title" data-translate="hist_event2_title">أحمدي خاني — ملحمة مم وزين</h3>
-                <button onclick="openStory('khani')" class="more-btn" style="border: none; background: none; font: inherit; cursor: pointer;">
+                <button onclick="openStory('khani')" class="more-btn"
+                    style="border: none; background: none; font: inherit; cursor: pointer;">
                     <span data-translate="hist_more">📖 المزيد</span>
                 </button>
                 <p class="t-desc" data-translate="hist_event2_desc">نظم الشاعر الكوردي العبقري أحمدي خاني ملحمة "مم
@@ -1458,7 +1479,8 @@
                 <div class="t-dot"></div>
                 <div class="t-year" data-translate="hist_event3_year">١٩٢٣ م</div>
                 <h3 class="t-title" data-translate="hist_event3_title">معاهدة لوزان والقضية الكوردية</h3>
-                <button onclick="openStory('lausanne')" class="more-btn" style="border: none; background: none; font: inherit; cursor: pointer;">
+                <button onclick="openStory('lausanne')" class="more-btn"
+                    style="border: none; background: none; font: inherit; cursor: pointer;">
                     <span data-translate="hist_more">📖 المزيد</span>
                 </button>
                 <p class="t-desc" data-translate="hist_event3_desc">بعد تفكك الإمبراطورية العثمانية، لم تُحقق معاهدة
@@ -1470,7 +1492,8 @@
                 <div class="t-dot"></div>
                 <div class="t-year" data-translate="hist_event4_year">٢٠٠٥ م</div>
                 <h3 class="t-title" data-translate="hist_event4_title">إقليم كوردستان — الدستور العراقي</h3>
-                <button onclick="openStory('kurdistan_region')" class="more-btn" style="border: none; background: none; font: inherit; cursor: pointer;">
+                <button onclick="openStory('kurdistan_region')" class="more-btn"
+                    style="border: none; background: none; font: inherit; cursor: pointer;">
                     <span data-translate="hist_more">📖 المزيد</span>
                 </button>
                 <p class="t-desc" data-translate="hist_event4_desc">اعترف الدستور العراقي الجديد بإقليم كوردستان كمنطقة
@@ -1532,7 +1555,7 @@
                         </p>
                         <div class="btn-group" style="margin: 12px 0;">
                             <button class="story-btn" onclick="openStory('language')">
-                                <span>📖</span> <span data-translate="story_read">معرفة القصة</span>
+                                <span>📖</span> <span data-translate="story_learn">معرفة وتعلم</span>
                             </button>
                         </div>
                         <span class="culture-icon">🗣️</span>
@@ -1554,7 +1577,8 @@
                         </div>
                         <span class="culture-icon">☀️</span>
                         <h3 data-translate="card_flag_title">العلم الكوردي</h3>
-                        <p data-translate="card_flag_desc">آلا رنكين، رمز القومية الكوردية بألوانه ودلالات شمسه الذهبية.</p>
+                        <p data-translate="card_flag_desc">آلا رنكين، رمز القومية الكوردية بألوانه ودلالات شمسه الذهبية.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1955,7 +1979,8 @@
                 <div class="hero-avatar">⚔️</div>
                 <h3 data-translate="hero1_title">مصطفى البارزاني</h3>
                 <p data-translate="hero1_desc">رمز النضال والمقاومة في كوردستان</p>
-                <button onclick="openStory('hero_barzani')" class="more-btn" style="border:none; background:none; font:inherit; cursor:pointer; margin-bottom:10px;">
+                <button onclick="openStory('hero_barzani')" class="more-btn"
+                    style="border:none; background:none; font:inherit; cursor:pointer; margin-bottom:10px;">
                     <span data-translate="hist_more">📖 المزيد</span>
                 </button>
                 <span class="hero-era" data-translate="hero1_era">ق. ٢٠</span>
@@ -1964,7 +1989,8 @@
                 <div class="hero-avatar">📜</div>
                 <h3 data-translate="hero2_title">قاضي محمد</h3>
                 <p data-translate="hero2_desc">اول رئيس لجمهورية مهاباد 1946</p>
-                <button onclick="openStory('hero_qazi')" class="more-btn" style="border:none; background:none; font:inherit; cursor:pointer; margin-bottom:10px;">
+                <button onclick="openStory('hero_qazi')" class="more-btn"
+                    style="border:none; background:none; font:inherit; cursor:pointer; margin-bottom:10px;">
                     <span data-translate="hist_more">📖 المزيد</span>
                 </button>
                 <span class="hero-era" data-translate="hero2_era">ق. ٢٠</span>
@@ -1974,7 +2000,8 @@
                 <h3 data-translate="hero3_title">الشيخ محمود الحفيد</h3>
                 <p data-translate="hero3_desc">قاد ثورة كوردستان في العشرينيات مطالباً بالاستقلال، ويُعدّ أول من أعلن
                     مملكة كوردستان</p>
-                <button onclick="openStory('hero_sheikh')" class="more-btn" style="border:none; background:none; font:inherit; cursor:pointer; margin-bottom:10px;">
+                <button onclick="openStory('hero_sheikh')" class="more-btn"
+                    style="border:none; background:none; font:inherit; cursor:pointer; margin-bottom:10px;">
                     <span data-translate="hist_more">📖 المزيد</span>
                 </button>
                 <span class="hero-era" data-translate="hero3_era">ق. ٢٠</span>
@@ -1984,7 +2011,8 @@
                 <h3 data-translate="hero4_title">نالي — شاعر الحب</h3>
                 <p data-translate="hero4_desc">أمير الشعر الكوردي الرومانسي، تُغنّى قصائده في كل ربوع كوردستان كأنها
                     وُلدت للأبد</p>
-                <button onclick="openStory('hero_nali')" class="more-btn" style="border:none; background:none; font:inherit; cursor:pointer; margin-bottom:10px;">
+                <button onclick="openStory('hero_nali')" class="more-btn"
+                    style="border:none; background:none; font:inherit; cursor:pointer; margin-bottom:10px;">
                     <span data-translate="hist_more">📖 المزيد</span>
                 </button>
                 <span class="hero-era" data-translate="hero4_era">ق. ١٩</span>
@@ -1993,7 +2021,8 @@
                 <div class="hero-avatar">🕊️</div>
                 <h3 data-translate="hero5_title">ليلى قاسم</h3>
                 <p data-translate="hero5_desc">عروس كوردستان، أيقونة التضحية والنضال النسوي.</p>
-                <button onclick="openStory('hero_leyla')" class="more-btn" style="border:none; background:none; font:inherit; cursor:pointer; margin-bottom:10px;">
+                <button onclick="openStory('hero_leyla')" class="more-btn"
+                    style="border:none; background:none; font:inherit; cursor:pointer; margin-bottom:10px;">
                     <span data-translate="hist_more">📖 المزيد</span>
                 </button>
                 <span class="hero-era" data-translate="hero5_era">ق. ٢٠</span>
@@ -2002,7 +2031,8 @@
                 <div class="hero-avatar">🦁</div>
                 <h3 data-translate="hero6_title">سيد رضا</h3>
                 <p data-translate="hero6_desc">قائد انتفاضة ديرسم ورمز الصمود الأسطوري أمام الظلم.</p>
-                <button onclick="openStory('hero_seyid')" class="more-btn" style="border:none; background:none; font:inherit; cursor:pointer; margin-bottom:10px;">
+                <button onclick="openStory('hero_seyid')" class="more-btn"
+                    style="border:none; background:none; font:inherit; cursor:pointer; margin-bottom:10px;">
                     <span data-translate="hist_more">📖 المزيد</span>
                 </button>
                 <span class="hero-era" data-translate="hero6_era">ق. ٢٠</span>
@@ -2023,7 +2053,8 @@
                 السياسية ودعم بناء المؤسسات.</p>
             <p data-translate="leader_desc2">تمثل قيادته فصلاً من فصول تطور الحكم الذاتي الكوردي، وساهم اسمه في ترسيخ
                 الهوية الكوردية على الساحة الوطنية والدولية.</p>
-            <button onclick="openStory('hero_masoud')" class="more-btn" style="border:none; background:none; font:inherit; cursor:pointer; margin-top:15px;">
+            <button onclick="openStory('hero_masoud')" class="more-btn"
+                style="border:none; background:none; font:inherit; cursor:pointer; margin-top:15px;">
                 <span data-translate="hist_more">📖 المزيد</span>
             </button>
         </div>

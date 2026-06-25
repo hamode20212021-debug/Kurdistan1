@@ -369,9 +369,17 @@ Kurd cilûbergên xwe ne tenê wek tiştek mîzeximî diparêzin — di bûyerê
         },
         {
           icon: "🎓",
-          title: "تعلّم الكوردية",
-          content: "في هذا القسم يمكنك تعلم أساسيات اللغة الكوردية:",
-          is_learn: true
+          title: "تعلّم الكوردية (كلمات وعبارات)",
+          content: "هنا يمكنك تعلم بعض العبارات الكوردية الأساسية (باللهجة السورانية والكورمانجية):",
+          steps: [
+            "مرحباً: سڵاو (Slaw)",
+            "كيف حالك؟: چۆنیت؟ (Çonît?) / Tu çawa yî?",
+            "أنا بخير، شكراً: باشم، سوپاس (Başim, Supas) / Ez baş im, spas",
+            "صباح الخير: بەیانی باش (Beyanî Baş) / Rojbaş",
+            "مساء الخير: شەو باش (Şew Baş) / Şevbaş",
+            "أهلاً وسهلاً: بەخێربێیت (Bexêrbêyt) / Bi xêr hatî",
+            "نعم / لا: بەڵێ / نەخێر (Belê / Nexêr) / Erê / Na"
+          ]
         }
       ]
     },
@@ -414,9 +422,17 @@ Between 30 and 40 million people speak Kurdish worldwide, making it one of the w
         },
         {
           icon: "🎓",
-          title: "Learn Kurdish",
-          content: "In this section you can learn the basics of the Kurdish language:",
-          is_learn: true
+          title: "Learn Kurdish (Basic Phrases)",
+          content: "Here are some basic words and phrases to get you started (Sorani / Kurmanji):",
+          steps: [
+            "Hello: Slaw / Silav",
+            "How are you?: Çonît? / Tu çawa yî?",
+            "I am fine, thank you: Başim, Supas / Ez baş im, spas",
+            "Good morning: Beyanî Baş / Rojbaş",
+            "Good night: Şew Baş / Şevbaş",
+            "Welcome: Bexêrbêyt / Bi xêr hatî",
+            "Yes / No: Belê / Nexêr / Erê / Na"
+          ]
         }
       ]
     },
@@ -459,9 +475,17 @@ Di navbera 30 û 40 milyon kesan de li cîhanê Kurdî diaxivin, ku wê yek ji m
         },
         {
           icon: "🎓",
-          title: "Kurdî Fêr Bibe",
-          content: "Di vî beşî de hûn dikarin bingehên zimanê Kurdî fêr bibin:",
-          is_learn: true
+          title: "Fêrbûna Kurdî (Hevokên Sereke)",
+          content: "Hin peyv û hevokên bingehîn ji bo destpêkê (Soranî / Kurmancî):",
+          steps: [
+            "Silav: Slaw / Silav",
+            "Tu çawa yî?: Çonît? / Tu çawa yî?",
+            "Ez baş im, spas: Başim, Supas / Ez baş im, spas",
+            "Rojbaş: Beyanî Baş / Rojbaş",
+            "Şevbaş: Şew Baş / Şevbaş",
+            "Bi xêr hatî: Bexêrbêyt / Bi xêr hatî",
+            "Erê / Na: Belê / Nexêr / Erê / Na"
+          ]
         }
       ]
     }
