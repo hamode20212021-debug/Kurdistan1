@@ -11,7 +11,7 @@ const storyData = {
   /* ══════════════ NOWRUZ ══════════════ */
   nowruz: {
     ar: {
-      tag:   "عيد كوردي",
+      tag: "عيد كوردي",
       title: "نوروز — عيد رأس السنة الكوردي",
       banner_bg: "linear-gradient(135deg,#1a3a0a,#2d5c15)",
       banner_icon: "🌿",
@@ -58,7 +58,7 @@ const storyData = {
     },
 
     en: {
-      tag:   "Kurdish Holiday",
+      tag: "Kurdish Holiday",
       title: "Nowruz — Kurdish New Year",
       banner_bg: "linear-gradient(135deg,#1a3a0a,#2d5c15)",
       banner_icon: "🌿",
@@ -105,7 +105,7 @@ According to Kurdish legend, the cruel king Zahhak had serpents growing from his
     },
 
     ku: {
-      tag:   "Cejna Kurdî",
+      tag: "Cejna Kurdî",
       title: "Newroz — Serê Salê Kurdî",
       banner_bg: "linear-gradient(135deg,#1a3a0a,#2d5c15)",
       banner_icon: "🌿",
@@ -155,7 +155,7 @@ Li gorî efsaneya Kurdî, padîşahê zalim Dehak mar li ser milên wî hene û 
   /* ══════════════ CLOTHING ══════════════ */
   clothing: {
     ar: {
-      tag:   "التراث الكوردي",
+      tag: "التراث الكوردي",
       title: "الزي الكوردي التقليدي",
       banner_bg: "linear-gradient(135deg,#2c1a3a,#5c1590)",
       banner_icon: "👘",
@@ -213,7 +213,7 @@ Li gorî efsaneya Kurdî, padîşahê zalim Dehak mar li ser milên wî hene û 
     },
 
     en: {
-      tag:   "Kurdish Heritage",
+      tag: "Kurdish Heritage",
       title: "Traditional Kurdish Dress",
       banner_bg: "linear-gradient(135deg,#2c1a3a,#5c1590)",
       banner_icon: "👘",
@@ -271,7 +271,7 @@ Kurds haven't preserved their traditional dress merely as a museum artifact — 
     },
 
     ku: {
-      tag:   "Mîrasa Kurdî",
+      tag: "Mîrasa Kurdî",
       title: "Cilûbergên Neteweyî yên Kurdî",
       banner_bg: "linear-gradient(135deg,#2c1a3a,#5c1590)",
       banner_icon: "👘",
@@ -332,7 +332,7 @@ Kurd cilûbergên xwe ne tenê wek tiştek mîzeximî diparêzin — di bûyerê
   /* ══════════════ LANGUAGE ══════════════ */
   language: {
     ar: {
-      tag:   "اللغة والهوية",
+      tag: "اللغة والهوية",
       title: "اللغة الكوردية — لسان الأمة",
       banner_bg: "linear-gradient(135deg,#1a2a3a,#155c5c)",
       banner_icon: "🗣️",
@@ -369,23 +369,15 @@ Kurd cilûbergên xwe ne tenê wek tiştek mîzeximî diparêzin — di bûyerê
         },
         {
           icon: "🎓",
-          title: "تعلّم الكوردية (كلمات وعبارات)",
-          content: "هنا يمكنك تعلم بعض العبارات الكوردية الأساسية (باللهجة السورانية والكورمانجية):",
-          steps: [
-            "مرحباً: سڵاو (Slaw)",
-            "كيف حالك؟: چۆنیت؟ (Çonît?) / Tu çawa yî?",
-            "أنا بخير، شكراً: باشم، سوپاس (Başim, Supas) / Ez baş im, spas",
-            "صباح الخير: بەیانی باش (Beyanî Baş) / Rojbaş",
-            "مساء الخير: شەو باش (Şew Baş) / Şevbaş",
-            "أهلاً وسهلاً: بەخێربێیت (Bexêrbêyt) / Bi xêr hatî",
-            "نعم / لا: بەڵێ / نەخێر (Belê / Nexêr) / Erê / Na"
-          ]
+          title: "لوحة تعلم الكوردية",
+          content: "هذه اللوحة مصممة لتمنحك مسارًا عمليًا في تعلم الكوردية: ابدأ بالحروف، ثم العبارات اليومية، ثم الأرقام، ثم اللهجات المختلفة. كل تبويب يضع بين يديك أداة جديدة للتقدم خطوة بخطوة.",
+          is_learn: true
         }
       ]
     },
 
     en: {
-      tag:   "Language & Identity",
+      tag: "Language & Identity",
       title: "Kurdish Language — Voice of a Nation",
       banner_bg: "linear-gradient(135deg,#1a2a3a,#155c5c)",
       banner_icon: "🗣️",
@@ -422,23 +414,15 @@ Between 30 and 40 million people speak Kurdish worldwide, making it one of the w
         },
         {
           icon: "🎓",
-          title: "Learn Kurdish (Basic Phrases)",
-          content: "Here are some basic words and phrases to get you started (Sorani / Kurmanji):",
-          steps: [
-            "Hello: Slaw / Silav",
-            "How are you?: Çonît? / Tu çawa yî?",
-            "I am fine, thank you: Başim, Supas / Ez baş im, spas",
-            "Good morning: Beyanî Baş / Rojbaş",
-            "Good night: Şew Baş / Şevbaş",
-            "Welcome: Bexêrbêyt / Bi xêr hatî",
-            "Yes / No: Belê / Nexêr / Erê / Na"
-          ]
+          title: "Kurdish Learning Hub",
+          content: "This learning hub gives you a practical path into Kurdish: start with the alphabet, then everyday phrases, then numbers, and finally the main dialects. Each tab gives you a focused way to progress.",
+          is_learn: true
         }
       ]
     },
 
     ku: {
-      tag:   "Ziman û Nasnameya",
+      tag: "Ziman û Nasnameya",
       title: "Zimanê Kurdî — Dengê Miletekî",
       banner_bg: "linear-gradient(135deg,#1a2a3a,#155c5c)",
       banner_icon: "🗣️",
@@ -475,17 +459,9 @@ Di navbera 30 û 40 milyon kesan de li cîhanê Kurdî diaxivin, ku wê yek ji m
         },
         {
           icon: "🎓",
-          title: "Fêrbûna Kurdî (Hevokên Sereke)",
-          content: "Hin peyv û hevokên bingehîn ji bo destpêkê (Soranî / Kurmancî):",
-          steps: [
-            "Silav: Slaw / Silav",
-            "Tu çawa yî?: Çonît? / Tu çawa yî?",
-            "Ez baş im, spas: Başim, Supas / Ez baş im, spas",
-            "Rojbaş: Beyanî Baş / Rojbaş",
-            "Şevbaş: Şew Baş / Şevbaş",
-            "Bi xêr hatî: Bexêrbêyt / Bi xêr hatî",
-            "Erê / Na: Belê / Nexêr / Erê / Na"
-          ]
+          title: "Navenda Fêrbûna Kurdî",
+          content: "Ev navend rêyek pratîkî dide we ji bo fêrbûna Kurdî: bi alfabe dest pê bikin, paşê hevokên rojane, dûv re jimare, û di dawiyê de zaravayên sereke. Her tab awayekî baldar a pêşveçûnê dide we.",
+          is_learn: true
         }
       ]
     }
@@ -1085,61 +1061,61 @@ Di navbera 30 û 40 milyon kesan de li cîhanê Kurdî diaxivin, ku wê yek ji m
 ────────────────────────────────────────────────────────── */
 const kurdishLearn = {
   alphabet: [
-    { kurd:"ا", latin:"a", ar:"أ" },
-    { kurd:"ب", latin:"b", ar:"ب" },
-    { kurd:"پ", latin:"p", ar:"پ" },
-    { kurd:"ت", latin:"t", ar:"ت" },
-    { kurd:"ج", latin:"c", ar:"ج" },
-    { kurd:"چ", latin:"ç", ar:"چ" },
-    { kurd:"ح", latin:"h", ar:"ح" },
-    { kurd:"خ", latin:"x", ar:"خ" },
-    { kurd:"د", latin:"d", ar:"د" },
-    { kurd:"ر", latin:"r", ar:"ر" },
-    { kurd:"ز", latin:"z", ar:"ز" },
-    { kurd:"ژ", latin:"j", ar:"ژ" },
-    { kurd:"س", latin:"s", ar:"س" },
-    { kurd:"ش", latin:"ş", ar:"ش" },
-    { kurd:"ع", latin:"'", ar:"ع" },
-    { kurd:"غ", latin:"ğ", ar:"غ" },
-    { kurd:"ف", latin:"f", ar:"ف" },
-    { kurd:"ڤ", latin:"v", ar:"ڤ" },
-    { kurd:"ق", latin:"q", ar:"ق" },
-    { kurd:"ک", latin:"k", ar:"ك" },
-    { kurd:"گ", latin:"g", ar:"گ" },
-    { kurd:"ل", latin:"l", ar:"ل" },
-    { kurd:"م", latin:"m", ar:"م" },
-    { kurd:"ن", latin:"n", ar:"ن" },
-    { kurd:"و", latin:"w/u", ar:"و" },
-    { kurd:"ه", latin:"h", ar:"ه" },
-    { kurd:"ی", latin:"y/î", ar:"ي" },
+    { kurd: "ا", latin: "a", ar: "أ" },
+    { kurd: "ب", latin: "b", ar: "ب" },
+    { kurd: "پ", latin: "p", ar: "پ" },
+    { kurd: "ت", latin: "t", ar: "ت" },
+    { kurd: "ج", latin: "c", ar: "ج" },
+    { kurd: "چ", latin: "ç", ar: "چ" },
+    { kurd: "ح", latin: "h", ar: "ح" },
+    { kurd: "خ", latin: "x", ar: "خ" },
+    { kurd: "د", latin: "d", ar: "د" },
+    { kurd: "ر", latin: "r", ar: "ر" },
+    { kurd: "ز", latin: "z", ar: "ز" },
+    { kurd: "ژ", latin: "j", ar: "ژ" },
+    { kurd: "س", latin: "s", ar: "س" },
+    { kurd: "ش", latin: "ş", ar: "ش" },
+    { kurd: "ع", latin: "'", ar: "ع" },
+    { kurd: "غ", latin: "ğ", ar: "غ" },
+    { kurd: "ف", latin: "f", ar: "ف" },
+    { kurd: "ڤ", latin: "v", ar: "ڤ" },
+    { kurd: "ق", latin: "q", ar: "ق" },
+    { kurd: "ک", latin: "k", ar: "ك" },
+    { kurd: "گ", latin: "g", ar: "گ" },
+    { kurd: "ل", latin: "l", ar: "ل" },
+    { kurd: "م", latin: "m", ar: "م" },
+    { kurd: "ن", latin: "n", ar: "ن" },
+    { kurd: "و", latin: "w/u", ar: "و" },
+    { kurd: "ه", latin: "h", ar: "ه" },
+    { kurd: "ی", latin: "y/î", ar: "ي" },
   ],
   phrases: [
-    { kurd:"سڵاو",      latin:"Silaw",        ar:"مرحبًا",      en:"Hello",          label_ar:"تحية" },
-    { kurd:"سپاس",      latin:"Sipas",        ar:"شكرًا",       en:"Thank you",      label_ar:"شكر" },
-    { kurd:"باش بیت",   latin:"Baş bît",      ar:"مع السلامة",  en:"Goodbye",        label_ar:"وداع" },
-    { kurd:"بەخێربێیت", latin:"Bexêr bêt",    ar:"أهلًا وسهلًا", en:"Welcome",        label_ar:"ترحيب" },
-    { kurd:"ناوم...",   latin:"Nawim...",      ar:"اسمي...",     en:"My name is...",  label_ar:"تعريف" },
-    { kurd:"تۆ چۆنی؟",  latin:"To çonî?",     ar:"كيف حالك؟",   en:"How are you?",   label_ar:"سؤال" },
-    { kurd:"باشم",      latin:"Başim",        ar:"أنا بخير",    en:"I'm fine",       label_ar:"إجابة" },
-    { kurd:"بەڵێ",      latin:"Belê",         ar:"نعم",         en:"Yes",            label_ar:"تأكيد" },
-    { kurd:"نەخێر",     latin:"Nexêr",        ar:"لا",          en:"No",             label_ar:"نفي" },
-    { kurd:"ببورە",     latin:"Bibore",       ar:"آسف/عفوًا",   en:"Sorry/Excuse me",label_ar:"اعتذار" },
-    { kurd:"حیوانت بوو",latin:"Heywanet bu",  ar:"الله يرحمك",  en:"God bless you",  label_ar:"دعاء" },
-    { kurd:"كوردستان",  latin:"Kurdistan",    ar:"كوردستان",    en:"Kurdistan",      label_ar:"وطن" },
+    { kurd: "سڵاو", latin: "Silaw", ar: "مرحبًا", en: "Hello", label_ar: "تحية" },
+    { kurd: "سپاس", latin: "Sipas", ar: "شكرًا", en: "Thank you", label_ar: "شكر" },
+    { kurd: "باش بیت", latin: "Baş bît", ar: "مع السلامة", en: "Goodbye", label_ar: "وداع" },
+    { kurd: "بەخێربێیت", latin: "Bexêr bêt", ar: "أهلًا وسهلًا", en: "Welcome", label_ar: "ترحيب" },
+    { kurd: "ناوم...", latin: "Nawim...", ar: "اسمي...", en: "My name is...", label_ar: "تعريف" },
+    { kurd: "تۆ چۆنی؟", latin: "To çonî?", ar: "كيف حالك؟", en: "How are you?", label_ar: "سؤال" },
+    { kurd: "باشم", latin: "Başim", ar: "أنا بخير", en: "I'm fine", label_ar: "إجابة" },
+    { kurd: "بەڵێ", latin: "Belê", ar: "نعم", en: "Yes", label_ar: "تأكيد" },
+    { kurd: "نەخێر", latin: "Nexêr", ar: "لا", en: "No", label_ar: "نفي" },
+    { kurd: "ببورە", latin: "Bibore", ar: "آسف/عفوًا", en: "Sorry/Excuse me", label_ar: "اعتذار" },
+    { kurd: "حیوانت بوو", latin: "Heywanet bu", ar: "الله يرحمك", en: "God bless you", label_ar: "دعاء" },
+    { kurd: "كوردستان", latin: "Kurdistan", ar: "كوردستان", en: "Kurdistan", label_ar: "وطن" },
   ],
   numbers: [
-    { kurd:"یه‌ک",   latin:"yek",   ar:"واحد ١",  en:"1" },
-    { kurd:"دوو",    latin:"duu",   ar:"اثنان ٢", en:"2" },
-    { kurd:"سێ",     latin:"sê",    ar:"ثلاثة ٣", en:"3" },
-    { kurd:"چوار",   latin:"çwar",  ar:"أربعة ٤", en:"4" },
-    { kurd:"پێنج",   latin:"pênc",  ar:"خمسة ٥",  en:"5" },
-    { kurd:"شه‌ش",   latin:"şeş",   ar:"ستة ٦",   en:"6" },
-    { kurd:"حه‌وت",  latin:"hewt",  ar:"سبعة ٧",  en:"7" },
-    { kurd:"هه‌شت",  latin:"heşt",  ar:"ثمانية ٨", en:"8" },
-    { kurd:"نۆ",     latin:"no",    ar:"تسعة ٩",  en:"9" },
-    { kurd:"ده",     latin:"deh",   ar:"عشرة ١٠", en:"10" },
-    { kurd:"بیست",   latin:"bîst",  ar:"عشرون ٢٠",en:"20" },
-    { kurd:"سه‌د",   latin:"sed",   ar:"مئة ١٠٠", en:"100" },
+    { kurd: "یه‌ک", latin: "yek", ar: "واحد ١", en: "1" },
+    { kurd: "دوو", latin: "duu", ar: "اثنان ٢", en: "2" },
+    { kurd: "سێ", latin: "sê", ar: "ثلاثة ٣", en: "3" },
+    { kurd: "چوار", latin: "çwar", ar: "أربعة ٤", en: "4" },
+    { kurd: "پێنج", latin: "pênc", ar: "خمسة ٥", en: "5" },
+    { kurd: "شه‌ش", latin: "şeş", ar: "ستة ٦", en: "6" },
+    { kurd: "حه‌وت", latin: "hewt", ar: "سبعة ٧", en: "7" },
+    { kurd: "هه‌شت", latin: "heşt", ar: "ثمانية ٨", en: "8" },
+    { kurd: "نۆ", latin: "no", ar: "تسعة ٩", en: "9" },
+    { kurd: "ده", latin: "deh", ar: "عشرة ١٠", en: "10" },
+    { kurd: "بیست", latin: "bîst", ar: "عشرون ٢٠", en: "20" },
+    { kurd: "سه‌د", latin: "sed", ar: "مئة ١٠٠", en: "100" },
   ]
 };
 
@@ -1147,14 +1123,14 @@ const kurdishLearn = {
    MODAL BUILDER
 ────────────────────────────────────────────────────────── */
 function buildStoryModal(storyKey) {
-  const lang  = (typeof currentLang !== 'undefined') ? currentLang : 'ar';
+  const lang = (typeof currentLang !== 'undefined') ? currentLang : 'ar';
   const story = storyData[storyKey]?.[lang] || storyData[storyKey]?.['ar'];
   if (!story) return;
 
   const overlay = document.getElementById('storyOverlay');
-  const modal   = document.getElementById('storyModal');
-  const banner  = document.getElementById('storyBanner');
-  const body    = document.getElementById('storyBody');
+  const modal = document.getElementById('storyModal');
+  const banner = document.getElementById('storyBanner');
+  const body = document.getElementById('storyBody');
   if (!overlay || !modal || !banner || !body) return;
 
   /* Build banner */
@@ -1223,12 +1199,18 @@ function buildSection(sec, lang) {
 function buildLearnSection(lang) {
   const tabLabels = {
     ar: { alphabet: "الأبجدية", phrases: "العبارات الأساسية", numbers: "الأرقام", dialects: "اللهجات" },
-    en: { alphabet: "Alphabet",  phrases: "Basic Phrases",       numbers: "Numbers",  dialects: "Dialects" },
-    ku: { alphabet: "Alfabe",    phrases: "Hevok",               numbers: "Jimare",   dialects: "Zarava" }
+    en: { alphabet: "Alphabet", phrases: "Basic Phrases", numbers: "Numbers", dialects: "Dialects" },
+    ku: { alphabet: "Alfabe", phrases: "Hevok", numbers: "Jimare", dialects: "Zarava" }
   };
   const t = tabLabels[lang] || tabLabels['ar'];
+  const guideText = {
+    ar: "ابدأ بالحروف، ثم العبارات اليومية، ثم الأرقام، ثم اللهجات. كل تبويب يفتح لك مسارًا جديدًا في التعلم.",
+    en: "Start with the alphabet, then everyday phrases, then numbers, and finally the dialects. Each tab opens a new learning path.",
+    ku: "Bi alfabe dest pê bike, paşê hevokên rojane, dûv re jimare, û di dawiyê de zaravayên Kurdî. Her tab rêyek nû ji bo fêrbûnê vedike."
+  };
 
   return `
+  <div style="margin-bottom:16px; padding:14px 16px; background:rgba(245,200,66,0.06); border:1px solid rgba(245,200,66,0.14); border-radius:12px; color:rgba(240,232,208,0.82); line-height:1.8;">${guideText[lang] || guideText['ar']}</div>
   <div class="lang-tabs">
     <button class="lang-tab-btn active" onclick="switchLearnTab(this,'learn-alphabet')">🔤 ${t.alphabet}</button>
     <button class="lang-tab-btn" onclick="switchLearnTab(this,'learn-phrases')">💬 ${t.phrases}</button>
@@ -1319,12 +1301,12 @@ function buildDialects(lang) {
 ────────────────────────────────────────────────────────── */
 
 /* Open a story modal */
-window.openStory = function(storyKey) {
+window.openStory = function (storyKey) {
   buildStoryModal(storyKey);
 };
 
 /* Close the modal */
-window.closeStory = function() {
+window.closeStory = function () {
   const overlay = document.getElementById('storyOverlay');
   if (overlay) {
     overlay.classList.remove('active');
@@ -1333,7 +1315,7 @@ window.closeStory = function() {
 };
 
 /* Switch learning tabs */
-window.switchLearnTab = function(btn, panelId) {
+window.switchLearnTab = function (btn, panelId) {
   const modal = document.getElementById('storyModal');
   if (!modal) return;
   modal.querySelectorAll('.lang-tab-btn').forEach(b => b.classList.remove('active'));
@@ -1344,15 +1326,15 @@ window.switchLearnTab = function(btn, panelId) {
 };
 
 /* Close on overlay click */
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const overlay = document.getElementById('storyOverlay');
   if (!overlay) return;
 
-  overlay.addEventListener('click', function(e) {
+  overlay.addEventListener('click', function (e) {
     if (e.target === overlay) window.closeStory();
   });
 
-  document.addEventListener('keydown', function(e) {
+  document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') window.closeStory();
   });
 });
@@ -1360,7 +1342,7 @@ document.addEventListener('DOMContentLoaded', function() {
 /* Track current language for story re-render */
 var currentLang = 'ar';
 var _origChangeLang = window.changeLanguage;
-window.changeLanguage = function(lang) {
+window.changeLanguage = function (lang) {
   currentLang = lang;
   if (_origChangeLang) _origChangeLang(lang);
 };

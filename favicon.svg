@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Kurdistan icon">
+  <rect width="256" height="256" rx="40" fill="#0A0C0A"/>
+  <rect x="32" y="32" width="192" height="192" rx="24" fill="#F5C842"/>
+  <path d="M68 94h120" stroke="#C0392B" stroke-width="16" stroke-linecap="round"/>
+  <path d="M68 128h120" stroke="#1A7A3C" stroke-width="16" stroke-linecap="round"/>
+  <path d="M80 84c18 20 28 36 28 56 0 20-10 36-28 56" stroke="#0A0C0A" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <path d="M176 84c-18 20-28 36-28 56 0 20 10 36 28 56" stroke="#0A0C0A" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <circle cx="128" cy="128" r="18" fill="#0A0C0A"/>
+</svg>

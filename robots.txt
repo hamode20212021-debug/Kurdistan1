@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kurdistan1111.github.io/Kurdistan1/sitemap.xml
