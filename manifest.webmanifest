@@ -1,0 +1,16 @@
+{
+    "name": "كوردستان - أرض الأبطال",
+    "short_name": "كوردستان",
+    "start_url": "./",
+    "display": "standalone",
+    "background_color": "#0A0C0A",
+    "theme_color": "#0A0C0A",
+    "description": "موقع تعليمي وثقافي عن كوردستان",
+    "icons": [
+        {
+            "src": "favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ]
+}
